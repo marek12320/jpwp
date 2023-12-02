@@ -2,7 +2,7 @@ namespace jpwp
 {
     public partial class Form1 : Form
     {
-        int score, cannonAngle = 0, cannonY = 45, bulletSpeed, alienSpeed;
+        int score, alienLine, cannonAngle = 0, cannonY = 45, bulletSpeed, alienSpeed;
         bool moveRight, moveLeft, Reload, isRoundOver, isGameOver;
         PictureBox[] AlienNumbers = null!;
         public Form1()
@@ -23,11 +23,13 @@ namespace jpwp
             {
                 cannonAngle += 2;
             }
+            
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && (string)x.Tag == "alien")
                 {
-                    x.Top += 2;
+                    x.Top += 1;
+                    alienLine += 1;
 
                     if (x.Top == 500)
                     {
@@ -53,6 +55,7 @@ namespace jpwp
                 {
                     x.Top -= 15 - Math.Abs(cannonAngle) / 2;
                     x.Left -= 0 - cannonAngle;
+                    
                     if (x.Top < 10 || x.Left < 0 || x.Left > 1280)
                     {
                         this.Controls.Remove(x);
@@ -94,6 +97,7 @@ namespace jpwp
             }
             if (e.KeyCode == Keys.Enter && isGameOver == true)
             {
+                Reload = true;
                 clearAll();
                 gameSetup();
             }
@@ -123,11 +127,11 @@ namespace jpwp
             {
                 AlienNumbers[i] = new PictureBox();
                 AlienNumbers[i].Size = new Size(60, 60);
-                //AlienNumbers[i].Image = Properties.Res
+                AlienNumbers[i].Image = Properties.Resources.ship1;
                 AlienNumbers[i].Top = 10;
                 AlienNumbers[i].Tag = "alien";
                 AlienNumbers[i].Left = startX;
-                AlienNumbers[i].BackColor = Color.White;
+                //AlienNumbers[i].BackColor = Color.White;
                 AlienNumbers[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 this.Controls.Add(AlienNumbers[i]);
                 startX += 170;
