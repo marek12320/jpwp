@@ -4,7 +4,7 @@ namespace jpwp
     {
         int score, cannonAngle = 0, cannonY = 45, bulletSpeed, alienSpeed;
         bool moveRight, moveLeft, Reload, isRoundOver, isGameOver;
-        PictureBox[] AlienNumbers;
+        PictureBox[] AlienNumbers = null!;
         public Form1()
         {
             InitializeComponent();
@@ -14,7 +14,7 @@ namespace jpwp
         private void MainGameTimer(object sender, EventArgs e)
         {
 
-            scoreScreen.Text = "Wynik: " + cannonAngle;
+            scoreScreen.Text = "Wynik: " + score;
             if (moveLeft == true && cannonAngle > -45)
             {
                 cannonAngle -= 2;
@@ -27,7 +27,7 @@ namespace jpwp
             {
                 if (x is PictureBox && (string)x.Tag == "alien")
                 {
-                    x.Top += 10;
+                    x.Top += 2;
 
                     if (x.Top == 500)
                     {
@@ -41,6 +41,7 @@ namespace jpwp
                             {
                                 this.Controls.Remove(b);
                                 this.Controls.Remove(x);
+                                score += 1;
                                 Reload = false;
                             }
                         }
@@ -50,9 +51,9 @@ namespace jpwp
                 }
                 if (x is PictureBox && (string)x.Tag == "bullet")
                 {
-                    x.Top -= 15 - Math.Abs(cannonAngle)/2;
+                    x.Top -= 15 - Math.Abs(cannonAngle) / 2;
                     x.Left -= 0 - cannonAngle;
-                    if (x.Top < 10 || x.Left < 0 || x.Left > 1280 )
+                    if (x.Top < 10 || x.Left < 0 || x.Left > 1280)
                     {
                         this.Controls.Remove(x);
                         Reload = false;
@@ -94,7 +95,7 @@ namespace jpwp
             if (e.KeyCode == Keys.Enter && isGameOver == true)
             {
                 clearAll();
-                //gameSetup();
+                gameSetup();
             }
         }
         private void gameSetup()
@@ -146,18 +147,27 @@ namespace jpwp
         }
         private void clearAll()
         {
-            foreach (Control i in this.Controls)
+            foreach (Control i in AlienNumbers)
             {
-                Console.WriteLine(i.Tag);
-                if (i is PictureBox && ((string)i.Tag == "alien") /*|| (string)i.Tag == "bullet"*/
-                    )
+                //System.Diagnostics.Debug.WriteLine(i.Tag);
+                this.Controls.Remove(i);
+            }
+            foreach (Control i in this.Controls.OfType<PictureBox>())
+            {
+                if((string)i.Tag == "bullet")
                 {
                     this.Controls.Remove(i);
+                    Reload = false;
                 }
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void player_Click(object sender, EventArgs e)
         {
 
         }

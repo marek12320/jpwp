@@ -53,10 +53,13 @@
             player.Size = new Size(33, 32);
             player.TabIndex = 1;
             player.TabStop = false;
+            player.Tag = "player";
+            player.Click += player_Click;
             // 
             // gameTimer
             // 
             gameTimer.Interval = 20;
+            gameTimer.Tag = "gameTimer";
             gameTimer.Tick += MainGameTimer;
             // 
             // Form1
