@@ -23,7 +23,7 @@ namespace jpwp
             {
                 cannonAngle += 2;
             }
-            
+
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && (string)x.Tag == "alien")
@@ -55,7 +55,7 @@ namespace jpwp
                 {
                     x.Top -= 15 - Math.Abs(cannonAngle) / 2;
                     x.Left -= 0 - cannonAngle;
-                    
+
                     if (x.Top < 10 || x.Left < 0 || x.Left > 1280)
                     {
                         this.Controls.Remove(x);
@@ -104,11 +104,13 @@ namespace jpwp
         }
         private void gameSetup()
         {
+            
             score = 0;
             scoreScreen.Text = "Wynik: " + score;
             isGameOver = false;
             Reload = false;
 
+            player.SizeMode = PictureBoxSizeMode.StretchImage;
             makeAliens();
             gameTimer.Start();
         }
@@ -158,7 +160,7 @@ namespace jpwp
             }
             foreach (Control i in this.Controls.OfType<PictureBox>())
             {
-                if((string)i.Tag == "bullet")
+                if ((string)i.Tag == "bullet")
                 {
                     this.Controls.Remove(i);
                     Reload = false;

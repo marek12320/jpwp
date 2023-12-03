@@ -47,10 +47,11 @@
             // 
             // player
             // 
-            player.BackColor = Color.FromArgb(0, 192, 192);
+            player.BackColor = SystemColors.ActiveCaption;
+            player.Image = Properties.Resources.ship5;
             player.Location = new Point(572, 619);
             player.Name = "player";
-            player.Size = new Size(33, 32);
+            player.Size = new Size(32, 32);
             player.TabIndex = 1;
             player.TabStop = false;
             player.Tag = "player";
