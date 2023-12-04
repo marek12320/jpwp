@@ -2,7 +2,8 @@ namespace jpwp
 {
     public partial class Form1 : Form
     {
-        int score, alienLine, cannonAngle = 0, cannonY = 45, bulletSpeed, alienSpeed;
+        int score, alienLine, cannonY = 45, bulletSpeed, alienSpeed;
+        double cannonAngle = 20;
         bool moveRight, moveLeft, Reload, isRoundOver, isGameOver;
         PictureBox[] AlienNumbers = null!;
         public Form1()
@@ -15,11 +16,11 @@ namespace jpwp
         {
 
             scoreScreen.Text = "Wynik: " + score;
-            if (moveLeft == true && cannonAngle > -45)
+            if (moveLeft == true && cannonAngle > 0)
             {
                 cannonAngle -= 2;
             }
-            if (moveRight == true && cannonAngle < 45)
+            if (moveRight == true && cannonAngle < 40)
             {
                 cannonAngle += 2;
             }
@@ -31,7 +32,7 @@ namespace jpwp
                     x.Top += 1;
                     alienLine += 1;
 
-                    if (x.Top == 500)
+                    if (x.Top == player.Top-60)
                     {
                         gameOver();
                     }
@@ -53,8 +54,8 @@ namespace jpwp
                 }
                 if (x is PictureBox && (string)x.Tag == "bullet")
                 {
-                    x.Top -= 15 - Math.Abs(cannonAngle) / 2;
-                    x.Left -= 0 - cannonAngle;
+                    x.Top -= (int)(18*Math.Sin(cannonAngle));
+                    x.Left -= (int)(18 * Math.Cos(cannonAngle));
 
                     if (x.Top < 10 || x.Left < 0 || x.Left > 1280)
                     {
@@ -104,7 +105,7 @@ namespace jpwp
         }
         private void gameSetup()
         {
-            
+
             score = 0;
             scoreScreen.Text = "Wynik: " + score;
             isGameOver = false;

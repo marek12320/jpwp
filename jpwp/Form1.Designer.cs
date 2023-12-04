@@ -32,6 +32,7 @@
             scoreScreen = new Label();
             player = new PictureBox();
             gameTimer = new System.Windows.Forms.Timer(components);
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)player).BeginInit();
             SuspendLayout();
             // 
@@ -39,7 +40,7 @@
             // 
             scoreScreen.AutoSize = true;
             scoreScreen.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            scoreScreen.Location = new Point(12, 636);
+            scoreScreen.Location = new Point(12, 919);
             scoreScreen.Name = "scoreScreen";
             scoreScreen.Size = new Size(73, 28);
             scoreScreen.TabIndex = 0;
@@ -49,9 +50,9 @@
             // 
             player.BackColor = SystemColors.ActiveCaption;
             player.Image = Properties.Resources.ship5;
-            player.Location = new Point(572, 619);
+            player.Location = new Point(576, 895);
             player.Name = "player";
-            player.Size = new Size(32, 32);
+            player.Size = new Size(60, 60);
             player.TabIndex = 1;
             player.TabStop = false;
             player.Tag = "player";
@@ -63,12 +64,24 @@
             gameTimer.Tag = "gameTimer";
             gameTimer.Tick += MainGameTimer;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = Color.IndianRed;
+            button1.Location = new Point(1099, 895);
+            button1.Name = "button1";
+            button1.Size = new Size(141, 52);
+            button1.TabIndex = 2;
+            button1.Text = "MENU";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1262, 673);
+            ClientSize = new Size(1262, 977);
+            Controls.Add(button1);
             Controls.Add(player);
             Controls.Add(scoreScreen);
             Margin = new Padding(3, 4, 3, 4);
@@ -88,5 +101,6 @@
         private Label scoreScreen;
         private PictureBox player;
         private System.Windows.Forms.Timer gameTimer;
+        private Button button1;
     }
 }
