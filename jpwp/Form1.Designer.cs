@@ -30,33 +30,21 @@
         {
             components = new System.ComponentModel.Container();
             scoreScreen = new Label();
-            player = new PictureBox();
             gameTimer = new System.Windows.Forms.Timer(components);
             button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)player).BeginInit();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            player_panel = new Panel();
             SuspendLayout();
             // 
             // scoreScreen
             // 
             scoreScreen.AutoSize = true;
             scoreScreen.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            scoreScreen.Location = new Point(12, 919);
+            scoreScreen.Location = new Point(10, 689);
             scoreScreen.Name = "scoreScreen";
-            scoreScreen.Size = new Size(73, 28);
+            scoreScreen.Size = new Size(60, 21);
             scoreScreen.TabIndex = 0;
             scoreScreen.Text = "wynik:";
-            // 
-            // player
-            // 
-            player.BackColor = SystemColors.ActiveCaption;
-            player.Image = Properties.Resources.ship5;
-            player.Location = new Point(576, 895);
-            player.Name = "player";
-            player.Size = new Size(60, 60);
-            player.TabIndex = 1;
-            player.TabStop = false;
-            player.Tag = "player";
-            player.Click += player_Click;
             // 
             // gameTimer
             // 
@@ -66,32 +54,46 @@
             // 
             // button1
             // 
+            button1.Enabled = false;
             button1.Font = new Font("Showcard Gothic", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
             button1.ForeColor = Color.IndianRed;
-            button1.Location = new Point(1099, 895);
+            button1.Location = new Point(962, 671);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(141, 52);
+            button1.Size = new Size(123, 39);
             button1.TabIndex = 2;
             button1.Text = "MENU";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += player_Click;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // player_panel
+            // 
+            player_panel.Location = new Point(489, 630);
+            player_panel.Name = "player_panel";
+            player_panel.Size = new Size(80, 80);
+            player_panel.TabIndex = 3;
+            player_panel.Paint += player_panel_Paint;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1262, 977);
+            ClientSize = new Size(1104, 733);
+            Controls.Add(player_panel);
             Controls.Add(button1);
-            Controls.Add(player);
             Controls.Add(scoreScreen);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "matemars";
             Load += Form1_Load;
             KeyDown += KeyIsDown;
             KeyUp += KeyIsUp;
-            ((System.ComponentModel.ISupportInitialize)player).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -99,8 +101,10 @@
         #endregion
 
         private Label scoreScreen;
-        private PictureBox player;
         private System.Windows.Forms.Timer gameTimer;
         private Button button1;
+        private ContextMenuStrip contextMenuStrip1;
+        private Panel panel1;
+        private Panel player_panel;
     }
 }

@@ -2,8 +2,8 @@ namespace jpwp
 {
     public partial class Form1 : Form
     {
-        int score, alienLine, cannonY = 45, bulletSpeed, alienSpeed;
-        double cannonAngle = 20;
+        int score, alienLine, cannonY = 45, bulletSpeed, alienSpeed, can;
+        double cannonAngle = 0;
         bool moveRight, moveLeft, Reload, isRoundOver, isGameOver;
         PictureBox[] AlienNumbers = null!;
         public Form1()
@@ -14,13 +14,13 @@ namespace jpwp
 
         private void MainGameTimer(object sender, EventArgs e)
         {
-
+            Refresh();
             scoreScreen.Text = "Wynik: " + score;
-            if (moveLeft == true && cannonAngle > 0)
+            if (moveLeft == true && cannonAngle > -20)
             {
                 cannonAngle -= 2;
             }
-            if (moveRight == true && cannonAngle < 40)
+            if (moveRight == true && cannonAngle < 20)
             {
                 cannonAngle += 2;
             }
@@ -32,7 +32,7 @@ namespace jpwp
                     x.Top += 1;
                     alienLine += 1;
 
-                    if (x.Top == player.Top-60)
+                    if (x.Top == 560)
                     {
                         gameOver();
                     }
@@ -45,7 +45,7 @@ namespace jpwp
                                 this.Controls.Remove(b);
                                 this.Controls.Remove(x);
                                 score += 1;
-                                Reload = false;
+                                //Reload = false;
                             }
                         }
 
@@ -54,13 +54,13 @@ namespace jpwp
                 }
                 if (x is PictureBox && (string)x.Tag == "bullet")
                 {
-                    x.Top -= (int)(18*Math.Sin(cannonAngle));
-                    x.Left -= (int)(18 * Math.Cos(cannonAngle));
+                    x.Top -= (int)(18 * Math.Cos(cannonAngle / 18));
+                    x.Left += (int)(18 * Math.Sin(cannonAngle / 18));
 
                     if (x.Top < 10 || x.Left < 0 || x.Left > 1280)
                     {
                         this.Controls.Remove(x);
-                        Reload = false;
+                        //Reload = false;
 
                     }
 
@@ -71,6 +71,7 @@ namespace jpwp
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode == Keys.Left && Reload == false)
             {
                 moveLeft = true;
@@ -93,15 +94,24 @@ namespace jpwp
             }
             if (e.KeyCode == Keys.Space && Reload == false)
             {
-                Reload = true;
+                //Reload = true;
                 createBullet();
             }
             if (e.KeyCode == Keys.Enter && isGameOver == true)
             {
-                Reload = true;
+                //Reload = true;
                 clearAll();
                 gameSetup();
             }
+        }
+        private void makePlayer()
+        {
+
+
+
+
+
+
         }
         private void gameSetup()
         {
@@ -109,9 +119,10 @@ namespace jpwp
             score = 0;
             scoreScreen.Text = "Wynik: " + score;
             isGameOver = false;
-            Reload = false;
+            //Reload = false;
 
-            player.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            makePlayer();
             makeAliens();
             gameTimer.Start();
         }
@@ -145,8 +156,8 @@ namespace jpwp
             PictureBox bullet = new PictureBox();
             //bullet.Image
             bullet.Size = new Size(6, 8);
-            bullet.Left = player.Left + player.Width / 2;
-            bullet.Top = player.Top - 15;
+            bullet.Left = 500;// player_panel.Width / 2;
+            bullet.Top = 660;
             bullet.Tag = "bullet";
             bullet.BackColor = Color.OrangeRed;
             this.Controls.Add(bullet);
@@ -164,7 +175,7 @@ namespace jpwp
                 if ((string)i.Tag == "bullet")
                 {
                     this.Controls.Remove(i);
-                    Reload = false;
+                    //Reload = false;
                 }
             }
         }
@@ -177,6 +188,26 @@ namespace jpwp
         private void player_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void player_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void player_panel_Paint(object sender, PaintEventArgs e)
+        {
+            Image playerImage = Properties.Resources.Spaceship1;
+            Bitmap bitmap = new Bitmap(playerImage.Width * 2, playerImage.Height * 2);
+            Graphics g = Graphics.FromImage(bitmap);
+
+            g.TranslateTransform(32, 32);
+            g.RotateTransform((int)((cannonAngle) * (85 / 20)));
+            g.TranslateTransform(-32, -32);
+
+            g.DrawImage(playerImage, 0, 0);
+            //e.Graphics.TranslateTransform(this.Width / 2, this.Height / 2);
+            e.Graphics.DrawImage(bitmap, 0, 0);
         }
     }
 }
