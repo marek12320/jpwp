@@ -3,7 +3,7 @@ namespace jpwp
     public partial class Form1 : Form
     {
         int score, alienLine, cannonY = 45, bulletSpeed, alienSpeed, can;
-        double cannonAngle = 0;
+        double cannonAngle = 0, Angle = 0;
         bool moveRight, moveLeft, Reload, isRoundOver, isGameOver;
         PictureBox[] AlienNumbers = null!;
         public Form1()
@@ -45,22 +45,25 @@ namespace jpwp
                                 this.Controls.Remove(b);
                                 this.Controls.Remove(x);
                                 score += 1;
-                                //Reload = false;
+                                Reload = false;
                             }
                         }
 
 
                     }
                 }
+                if (Reload == false)
+                {
+                    Angle = cannonAngle;
+                }
                 if (x is PictureBox && (string)x.Tag == "bullet")
                 {
-                    x.Top -= (int)(18 * Math.Cos(cannonAngle / 18));
-                    x.Left += (int)(18 * Math.Sin(cannonAngle / 18));
-
+                    x.Top -= (int)(18 * Math.Cos(Angle / 18));
+                    x.Left += (int)(18 * Math.Sin(Angle / 18));
                     if (x.Top < 10 || x.Left < 0 || x.Left > 1280)
                     {
                         this.Controls.Remove(x);
-                        //Reload = false;
+                        Reload = false;
 
                     }
 
@@ -72,11 +75,11 @@ namespace jpwp
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
 
-            if (e.KeyCode == Keys.Left && Reload == false)
+            if (e.KeyCode == Keys.Left )
             {
                 moveLeft = true;
             }
-            if (e.KeyCode == Keys.Right && Reload == false)
+            if (e.KeyCode == Keys.Right )
             {
                 moveRight = true;
             }
@@ -94,35 +97,27 @@ namespace jpwp
             }
             if (e.KeyCode == Keys.Space && Reload == false)
             {
-                //Reload = true;
+                Reload = true;
                 createBullet();
             }
             if (e.KeyCode == Keys.Enter && isGameOver == true)
             {
-                //Reload = true;
+                Reload = true;
                 clearAll();
                 gameSetup();
             }
         }
-        private void makePlayer()
-        {
-
-
-
-
-
-
-        }
+     
         private void gameSetup()
         {
 
             score = 0;
             scoreScreen.Text = "Wynik: " + score;
             isGameOver = false;
-            //Reload = false;
+            Reload = false;
 
 
-            makePlayer();
+            //makePlayer();
             makeAliens();
             gameTimer.Start();
         }
@@ -156,8 +151,8 @@ namespace jpwp
             PictureBox bullet = new PictureBox();
             //bullet.Image
             bullet.Size = new Size(6, 8);
-            bullet.Left = 500;// player_panel.Width / 2;
-            bullet.Top = 660;
+            bullet.Left = 593;// player_panel.Width / 2;
+            bullet.Top = 885;
             bullet.Tag = "bullet";
             bullet.BackColor = Color.OrangeRed;
             this.Controls.Add(bullet);
@@ -175,7 +170,7 @@ namespace jpwp
                 if ((string)i.Tag == "bullet")
                 {
                     this.Controls.Remove(i);
-                    //Reload = false;
+                    Reload = false;
                 }
             }
         }
