@@ -60,15 +60,15 @@ namespace jpwp
                                     scoreScreen.Text = "Wynik: " + score;
                                     gameOver();
                                 }
-                                if(isGameOver == false)
+                                if (isGameOver == false)
                                 {
                                     addGivenNumber(level1GivenNumbers[score]);
                                 }
-                                
+
                             }
                         }
                     }
-                    
+
                 }
                 if (Reload == false)
                 {
@@ -148,7 +148,7 @@ namespace jpwp
         }
         private Image writeOnImage(Image img, String text)
         {
-            
+
             Font font = new Font("TimesNewRoman", 200, FontStyle.Bold, GraphicsUnit.Pixel);
             Graphics graphics = Graphics.FromImage(img);
             if (text.Length == 2)
@@ -188,7 +188,7 @@ namespace jpwp
             objectNum.Text = lvlObjectNumber;
             objectNum.Font = new Font("TimesNewRoman", 50, FontStyle.Bold, GraphicsUnit.Pixel);
             objectNum.Left = 20;
-            objectNum.Top = 630;
+            objectNum.Top = 860;
             objectNum.ForeColor = Color.Red;
             objectNum.AutoSize = true;
             this.Controls.Add((objectNum));
@@ -200,8 +200,8 @@ namespace jpwp
             Label givenNum = new Label();
             givenNum.Text = lvlgivenNumber;
             givenNum.Font = new Font("TimesNewRoman", 50, FontStyle.Bold, GraphicsUnit.Pixel);
-            givenNum.Left = 370;
-            givenNum.Top = 630;
+            givenNum.Left = 555;
+            givenNum.Top = 900;
             givenNum.ForeColor = Color.Red;
             givenNum.AutoSize = true;
             givenNum.Tag = "GivenNumber";
@@ -213,8 +213,8 @@ namespace jpwp
             PictureBox bullet = new PictureBox();
             //bullet.Image
             bullet.Size = new Size(6, 8);
-            bullet.Left = 515;// player_panel.Width / 2;
-            bullet.Top = 660;
+            bullet.Left = 593 ;// player_panel.Width / 2;
+            bullet.Top = 860;
             bullet.Tag = "bullet";
             bullet.BackColor = Color.OrangeRed;
             this.Controls.Add(bullet);
@@ -237,22 +237,8 @@ namespace jpwp
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void player_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void player_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void player_panel_Paint(object sender, PaintEventArgs e)
+        private void playerPaint(object sender, PaintEventArgs e)
         {
             Image playerImage = Properties.Resources.Spaceship1;
             Bitmap bitmap = new Bitmap(playerImage.Width * 2, playerImage.Height * 2);
