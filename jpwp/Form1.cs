@@ -5,7 +5,7 @@ namespace jpwp
     {
         int score, alienLine;
         double cannonAngle = 0, Angle = 0;
-        bool moveRight, moveLeft, Reload, isRoundOver, isGameOver;
+        bool moveRight, moveLeft, Reload, isOneRoundOver, isTwoRoundOver, isGameOver;
         PictureBox[] AlienNumbers = null!;
 
         String lvl1ObjectNumber = "3";
@@ -131,6 +131,8 @@ namespace jpwp
 
             score = 0;
             scoreScreen.Text = "Wynik: " + score;
+            isOneRoundOver = false;
+            isTwoRoundOver = false;
             isGameOver = false;
             Reload = false;
 
@@ -213,7 +215,7 @@ namespace jpwp
             PictureBox bullet = new PictureBox();
             //bullet.Image
             bullet.Size = new Size(6, 8);
-            bullet.Left = 593 ;// player_panel.Width / 2;
+            bullet.Left = 593 ;
             bullet.Top = 860;
             bullet.Tag = "bullet";
             bullet.BackColor = Color.OrangeRed;
