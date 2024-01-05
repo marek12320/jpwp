@@ -10,7 +10,7 @@ namespace jpwp
 
         String lvl1ObjectNumber = "3";
         string[] level1ShipNumbers = { "1", "4", "-2", "5", "6", "-7" };
-        string[] level1GivenNumbers = { "+2", "-1", "+5", "-2", "-3", "+10" };
+        string[] level1GivenNumbers = { "-1", "-3", "-2", "+2", "+5", "+10" };
         int[] level1Order = { 1, 4, 3, 0, 2, 5 };
         public Form1()
         {
@@ -48,14 +48,27 @@ namespace jpwp
                                 this.Controls.Remove(x);
                                 score += 1;
                                 Reload = false;
+                                foreach (Control o in this.Controls)
+                                {
+                                    if ((string)o.Tag == "GivenNumber")
+                                    {
+                                        this.Controls.Remove(o);
+                                    }
+                                }
+                                if (x.Top == 560 || score == 6)
+                                {
+                                    scoreScreen.Text = "Wynik: " + score;
+                                    gameOver();
+                                }
+                                if(isGameOver == false)
+                                {
+                                    addGivenNumber(level1GivenNumbers[score]);
+                                }
+                                
                             }
                         }
                     }
-                    if (x.Top == 560 || score == 6)
-                    {
-                        scoreScreen.Text = "Wynik: " + score;
-                        gameOver();
-                    }
+                    
                 }
                 if (Reload == false)
                 {
@@ -121,8 +134,8 @@ namespace jpwp
             isGameOver = false;
             Reload = false;
 
-
-            addObjectNumber();
+            addGivenNumber(level1GivenNumbers[score]);
+            addObjectNumber(lvl1ObjectNumber);
             makeAliens();
             gameTimer.Start();
         }
@@ -155,7 +168,7 @@ namespace jpwp
 
             for (int i = 0; i < AlienNumbers.Length; i++)
             {
-                Image image = writeOnImage(Properties.Resources., level1ShipNumbers[i]);
+                Image image = writeOnImage(Properties.Resources.ship1, level1ShipNumbers[i]);
                 AlienNumbers[i] = new PictureBox();
                 AlienNumbers[i].Size = new Size(60, 60);
                 AlienNumbers[i].Image = image;
@@ -168,18 +181,32 @@ namespace jpwp
                 startX += 170;
             }
         }
-        private void addObjectNumber()
+        private void addObjectNumber(string lvlObjectNumber)
         {
-            Image image = new Bitmap(60,60);
-            PictureBox objectNum = new PictureBox();
-            objectNum.Size = new Size(60, 60);
-            objectNum.Top = 650;
-            objectNum.Left = 410;
-            objectNum.Image = writeOnImage(objectNum.Image, lvl1ObjectNumber);
-            objectNum.SizeMode = PictureBoxSizeMode.StretchImage;
-            objectNum.BackColor = Color.Red;
-            
+
+            Label objectNum = new Label();
+            objectNum.Text = lvlObjectNumber;
+            objectNum.Font = new Font("TimesNewRoman", 50, FontStyle.Bold, GraphicsUnit.Pixel);
+            objectNum.Left = 20;
+            objectNum.Top = 630;
+            objectNum.ForeColor = Color.Red;
+            objectNum.AutoSize = true;
             this.Controls.Add((objectNum));
+
+        }
+        private void addGivenNumber(string lvlgivenNumber)
+        {
+
+            Label givenNum = new Label();
+            givenNum.Text = lvlgivenNumber;
+            givenNum.Font = new Font("TimesNewRoman", 50, FontStyle.Bold, GraphicsUnit.Pixel);
+            givenNum.Left = 370;
+            givenNum.Top = 630;
+            givenNum.ForeColor = Color.Red;
+            givenNum.AutoSize = true;
+            givenNum.Tag = "GivenNumber";
+            this.Controls.Add((givenNum));
+
         }
         private void createBullet()
         {
