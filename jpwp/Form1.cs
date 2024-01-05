@@ -122,7 +122,7 @@ namespace jpwp
             Reload = false;
 
 
-            //makePlayer();
+            addObjectNumber();
             makeAliens();
             gameTimer.Start();
         }
@@ -133,6 +133,21 @@ namespace jpwp
 
 
         }
+        private Image writeOnImage(Image img, String text)
+        {
+            
+            Font font = new Font("TimesNewRoman", 200, FontStyle.Bold, GraphicsUnit.Pixel);
+            Graphics graphics = Graphics.FromImage(img);
+            if (text.Length == 2)
+            {
+                graphics.DrawString(text, font, Brushes.Yellow, new Point(10, 0));
+            }
+            else
+            {
+                graphics.DrawString(text, font, Brushes.Yellow, new Point(50, 0));
+            }
+            return img;
+        }
         private void makeAliens()
         {
             int startX = 100;
@@ -140,18 +155,7 @@ namespace jpwp
 
             for (int i = 0; i < AlienNumbers.Length; i++)
             {
-                Image image = Properties.Resources.ship1;
-                Font font = new Font("TimesNewRoman", 200, FontStyle.Bold, GraphicsUnit.Pixel);
-                Graphics graphics = Graphics.FromImage(image);
-                if (level1ShipNumbers[i].Length == 2)
-                {
-                    graphics.DrawString(level1ShipNumbers[i], font, Brushes.Yellow, new Point(10, 0));
-                }
-                else
-                {
-                    graphics.DrawString(level1ShipNumbers[i], font, Brushes.Yellow, new Point(50, 0));
-                }
-
+                Image image = writeOnImage(Properties.Resources.ship1, level1ShipNumbers[i]);
                 AlienNumbers[i] = new PictureBox();
                 AlienNumbers[i].Size = new Size(60, 60);
                 AlienNumbers[i].Image = image;
@@ -163,7 +167,19 @@ namespace jpwp
                 this.Controls.Add(AlienNumbers[i]);
                 startX += 170;
             }
-
+        }
+        private void addObjectNumber()
+        {
+            Image image = new Bitmap(60,60);
+            PictureBox objectNum = new PictureBox();
+            objectNum.Size = new Size(60, 60);
+            objectNum.Top = 650;
+            objectNum.Left = 410;
+            objectNum.Image = writeOnImage(image, "3");
+            objectNum.SizeMode = PictureBoxSizeMode.StretchImage;
+            objectNum.BackColor = Color.Red;
+            
+            this.Controls.Add((objectNum));
         }
         private void createBullet()
         {
