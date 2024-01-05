@@ -8,7 +8,7 @@ namespace jpwp
         bool moveRight, moveLeft, Reload, isRoundOver, isGameOver;
         PictureBox[] AlienNumbers = null!;
 
-        int lvl1ObjectNumber = 3;
+        String lvl1ObjectNumber = "3";
         string[] level1ShipNumbers = { "1", "4", "-2", "5", "6", "-7" };
         string[] level1GivenNumbers = { "+2", "-1", "+5", "-2", "-3", "+10" };
         int[] level1Order = { 1, 4, 3, 0, 2, 5 };
@@ -155,7 +155,7 @@ namespace jpwp
 
             for (int i = 0; i < AlienNumbers.Length; i++)
             {
-                Image image = writeOnImage(Properties.Resources.ship1, level1ShipNumbers[i]);
+                Image image = writeOnImage(Properties.Resources., level1ShipNumbers[i]);
                 AlienNumbers[i] = new PictureBox();
                 AlienNumbers[i].Size = new Size(60, 60);
                 AlienNumbers[i].Image = image;
@@ -175,7 +175,7 @@ namespace jpwp
             objectNum.Size = new Size(60, 60);
             objectNum.Top = 650;
             objectNum.Left = 410;
-            objectNum.Image = writeOnImage(Properties.Resources., "3");
+            objectNum.Image = writeOnImage(objectNum.Image, lvl1ObjectNumber);
             objectNum.SizeMode = PictureBoxSizeMode.StretchImage;
             objectNum.BackColor = Color.Red;
             
