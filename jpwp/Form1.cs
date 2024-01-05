@@ -1,11 +1,17 @@
 namespace jpwp
 {
+
     public partial class Form1 : Form
     {
-        int score, alienLine, cannonY = 45, bulletSpeed, alienSpeed, can;
+        int score, alienLine;
         double cannonAngle = 0, Angle = 0;
         bool moveRight, moveLeft, Reload, isRoundOver, isGameOver;
         PictureBox[] AlienNumbers = null!;
+
+        int lvl1ObjectNumber = 3;
+        string[] level1ShipNumbers = { "1", "4", "-2", "5", "6", "-7" };
+        string[] level1GivenNumbers = { "+2", "-1", "+5", "-2", "-3", "+10" };
+        int[] level1Order = { 1, 4, 3, 0, 2, 5 };
         public Form1()
         {
             InitializeComponent();
@@ -16,13 +22,13 @@ namespace jpwp
         {
             Refresh();
             scoreScreen.Text = "Wynik: " + score;
-            if (moveLeft == true && cannonAngle > -20)
+            if (moveLeft == true && cannonAngle > -27)
             {
-                cannonAngle -= 2;
+                cannonAngle -= 1;
             }
-            if (moveRight == true && cannonAngle < 20)
+            if (moveRight == true && cannonAngle < 27)
             {
-                cannonAngle += 2;
+                cannonAngle += 1;
             }
 
             foreach (Control x in this.Controls)
@@ -32,15 +38,11 @@ namespace jpwp
                     x.Top += 1;
                     alienLine += 1;
 
-                    if (x.Top == 560)
-                    {
-                        gameOver();
-                    }
                     foreach (Control b in this.Controls)
                     {
                         if (b is PictureBox && (string)b.Tag == "bullet")
                         {
-                            if (b.Bounds.IntersectsWith(x.Bounds))
+                            if (b.Bounds.IntersectsWith(x.Bounds) && x == AlienNumbers[level1Order[score]])
                             {
                                 this.Controls.Remove(b);
                                 this.Controls.Remove(x);
@@ -48,8 +50,11 @@ namespace jpwp
                                 Reload = false;
                             }
                         }
-
-
+                    }
+                    if (x.Top == 560 || score == 6)
+                    {
+                        scoreScreen.Text = "Wynik: " + score;
+                        gameOver();
                     }
                 }
                 if (Reload == false)
@@ -58,8 +63,8 @@ namespace jpwp
                 }
                 if (x is PictureBox && (string)x.Tag == "bullet")
                 {
-                    x.Top -= (int)(18 * Math.Cos(Angle / 18));
-                    x.Left += (int)(18 * Math.Sin(Angle / 18));
+                    x.Top -= (int)(32 * Math.Cos(Angle / 17));
+                    x.Left += (int)(32 * Math.Sin(Angle / 17));
                     if (x.Top < 10 || x.Left < 0 || x.Left > 1280)
                     {
                         this.Controls.Remove(x);
@@ -75,11 +80,11 @@ namespace jpwp
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
 
-            if (e.KeyCode == Keys.Left )
+            if (e.KeyCode == Keys.Left)
             {
                 moveLeft = true;
             }
-            if (e.KeyCode == Keys.Right )
+            if (e.KeyCode == Keys.Right)
             {
                 moveRight = true;
             }
@@ -107,7 +112,7 @@ namespace jpwp
                 gameSetup();
             }
         }
-     
+
         private void gameSetup()
         {
 
@@ -130,13 +135,26 @@ namespace jpwp
         }
         private void makeAliens()
         {
-            int startX = 150;
+            int startX = 100;
             AlienNumbers = new PictureBox[6];
+
             for (int i = 0; i < AlienNumbers.Length; i++)
             {
+                Image image = Properties.Resources.ship1;
+                Font font = new Font("TimesNewRoman", 200, FontStyle.Bold, GraphicsUnit.Pixel);
+                Graphics graphics = Graphics.FromImage(image);
+                if (level1ShipNumbers[i].Length == 2)
+                {
+                    graphics.DrawString(level1ShipNumbers[i], font, Brushes.Yellow, new Point(10, 0));
+                }
+                else
+                {
+                    graphics.DrawString(level1ShipNumbers[i], font, Brushes.Yellow, new Point(50, 0));
+                }
+
                 AlienNumbers[i] = new PictureBox();
                 AlienNumbers[i].Size = new Size(60, 60);
-                AlienNumbers[i].Image = Properties.Resources.ship1;
+                AlienNumbers[i].Image = image;
                 AlienNumbers[i].Top = 10;
                 AlienNumbers[i].Tag = "alien";
                 AlienNumbers[i].Left = startX;
@@ -145,14 +163,15 @@ namespace jpwp
                 this.Controls.Add(AlienNumbers[i]);
                 startX += 170;
             }
+
         }
         private void createBullet()
         {
             PictureBox bullet = new PictureBox();
             //bullet.Image
             bullet.Size = new Size(6, 8);
-            bullet.Left = 593;// player_panel.Width / 2;
-            bullet.Top = 885;
+            bullet.Left = 515;// player_panel.Width / 2;
+            bullet.Top = 660;
             bullet.Tag = "bullet";
             bullet.BackColor = Color.OrangeRed;
             this.Controls.Add(bullet);
