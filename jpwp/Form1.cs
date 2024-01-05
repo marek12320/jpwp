@@ -175,7 +175,7 @@ namespace jpwp
             objectNum.Size = new Size(60, 60);
             objectNum.Top = 650;
             objectNum.Left = 410;
-            objectNum.Image = writeOnImage(image, "3");
+            objectNum.Image = writeOnImage(Properties.Resources., "3");
             objectNum.SizeMode = PictureBoxSizeMode.StretchImage;
             objectNum.BackColor = Color.Red;
             
