@@ -57,7 +57,7 @@
             // 
             // button1
             // 
-            button1.Enabled = false;
+            button1.AccessibleRole = AccessibleRole.Cursor;
             button1.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point);
             button1.ForeColor = Color.IndianRed;
             button1.Location = new Point(1099, 895);
@@ -66,6 +66,7 @@
             button1.TabIndex = 2;
             button1.Text = "MENU";
             button1.UseVisualStyleBackColor = true;
+            button1.MouseClick += button1_MouseClick;
             // 
             // contextMenuStrip1
             // 
@@ -119,6 +120,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "matemars";
+            Load += Form1_Load;
             KeyDown += KeyIsDown;
             KeyUp += KeyIsUp;
             panel2.ResumeLayout(false);

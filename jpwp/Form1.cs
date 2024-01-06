@@ -1,17 +1,30 @@
+using System.Runtime.Intrinsics.X86;
+
 namespace jpwp
 {
 
     public partial class Form1 : Form
     {
-        int score, alienLine;
+        int score = 0, alienSpeed;
         double cannonAngle = 0, Angle = 0;
-        bool moveRight, moveLeft, Reload, isOneRoundOver, isTwoRoundOver, isGameOver;
+        bool moveRight, moveLeft, Reload, isRoundOneOver = false, isRoundTwoOver = false, isGameOver = false;
+
         PictureBox[] AlienNumbers = null!;
 
         String lvl1ObjectNumber = "3";
         string[] level1ShipNumbers = { "1", "4", "-2", "5", "6", "-7" };
         string[] level1GivenNumbers = { "-1", "-3", "-2", "+2", "+5", "+10" };
         int[] level1Order = { 1, 4, 3, 0, 2, 5 };
+
+        String lvl2ObjectNumber = "3";
+        string[] level2ShipNumbers = { "1", "4", "-2", "5", "6", "-7" };
+        string[] level2GivenNumbers = { "-1", "-3", "-2", "+2", "+5", "+10" };
+        int[] level2Order = { 1, 4, 3, 0, 2, 5 };
+
+        String lvl3ObjectNumber = "3";
+        string[] level3ShipNumbers = { "1", "4", "-2", "5", "6", "-7" };
+        string[] level3GivenNumbers = { "-1", "-3", "-2", "+2", "+5", "+10" };
+        int[] level3Order = { 1, 4, 3, 0, 2, 5 };
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +35,26 @@ namespace jpwp
         {
             Refresh();
             scoreScreen.Text = "Wynik: " + score;
+            if (isRoundOneOver == false)
+            {
+                GameLogic(level1Order, 0, level1GivenNumbers);
+            }
+            else if (isRoundTwoOver == false)
+            {
+                GameLogic(level1Order, 6, level2GivenNumbers);
+            }
+            else if (isGameOver == false)
+            {
+                GameLogic(level1Order, 12, level3GivenNumbers);
+            }
+            else
+            {
+
+            }
+        }
+
+        private void GameLogic(int[] levelOrder, int roundStartScore, String[] levelGivenNumbers)
+        {
             if (moveLeft == true && cannonAngle > -27)
             {
                 cannonAngle -= 1;
@@ -30,19 +63,17 @@ namespace jpwp
             {
                 cannonAngle += 1;
             }
-
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && (string)x.Tag == "alien")
                 {
                     x.Top += 1;
-                    alienLine += 1;
 
                     foreach (Control b in this.Controls)
                     {
                         if (b is PictureBox && (string)b.Tag == "bullet")
                         {
-                            if (b.Bounds.IntersectsWith(x.Bounds) && x == AlienNumbers[level1Order[score]])
+                            if (b.Bounds.IntersectsWith(x.Bounds) && x == AlienNumbers[levelOrder[score - roundStartScore]])
                             {
                                 this.Controls.Remove(b);
                                 this.Controls.Remove(x);
@@ -55,14 +86,15 @@ namespace jpwp
                                         this.Controls.Remove(o);
                                     }
                                 }
-                                if (x.Top == 560 || score == 6)
+
+                                if (x.Top == 560 || score == 6 + roundStartScore)
                                 {
                                     scoreScreen.Text = "Wynik: " + score;
-                                    gameOver();
+                                    roundOver();
                                 }
-                                if (isGameOver == false)
+                                else if (isRoundOneOver == false || isRoundTwoOver == false || isGameOver == false)
                                 {
-                                    addGivenNumber(level1GivenNumbers[score]);
+                                    addGivenNumber(levelGivenNumbers[score - roundStartScore]);
                                 }
 
                             }
@@ -89,7 +121,6 @@ namespace jpwp
                 }
             }
         }
-
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
 
@@ -101,6 +132,7 @@ namespace jpwp
             {
                 moveRight = true;
             }
+
 
         }
         private void KeyIsUp(object sender, KeyEventArgs e)
@@ -118,6 +150,12 @@ namespace jpwp
                 Reload = true;
                 createBullet();
             }
+            if (e.KeyCode == Keys.Enter && ((isRoundOneOver == true || isRoundOneOver == true) && isGameOver == false))
+            {
+                Reload = true;
+                clearAll();
+                gameSetup();
+            }
             if (e.KeyCode == Keys.Enter && isGameOver == true)
             {
                 Reload = true;
@@ -129,23 +167,62 @@ namespace jpwp
         private void gameSetup()
         {
 
-            score = 0;
+
             scoreScreen.Text = "Wynik: " + score;
-            isOneRoundOver = false;
-            isTwoRoundOver = false;
-            isGameOver = false;
+            //isRoundOneOver = false; 
+            //isRoundTwoOver = false;
+            //isGameOver = false;
+            gameTimer.Start();
             Reload = false;
 
-            addGivenNumber(level1GivenNumbers[score]);
-            addObjectNumber(lvl1ObjectNumber);
+            if (isRoundOneOver == false)
+            {
+                addGivenNumber(level1GivenNumbers[score]);
+                addObjectNumber(lvl1ObjectNumber);
+            }
+            else if (isRoundTwoOver == false)
+            {
+                addGivenNumber(level2GivenNumbers[score - 6]);
+                addObjectNumber(lvl2ObjectNumber);
+            }
+            else if (isGameOver == false)
+            {
+                addGivenNumber(level3GivenNumbers[score - 12]);
+                addObjectNumber(lvl3ObjectNumber);
+            }
+            else
+            {
+                gameOver();
+            }
+
             makeAliens();
+            //winingBanner();
             gameTimer.Start();
+
+        }
+        private void roundOver()
+        {
+            if (isRoundOneOver == false)
+            {
+                isRoundOneOver = true;
+                gameTimer.Stop();
+
+            }
+            else if (isRoundTwoOver == false)
+            {
+                isRoundTwoOver = true;
+            }
+            else
+            {
+                gameOver();
+            }
         }
         private void gameOver()
         {
             isGameOver = true;
             gameTimer.Stop();
 
+            winingBanner();
 
         }
         private Image writeOnImage(Image img, String text)
@@ -180,7 +257,7 @@ namespace jpwp
                 //AlienNumbers[i].BackColor = Color.White;
                 AlienNumbers[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 this.Controls.Add(AlienNumbers[i]);
-                startX += 170;
+                startX += 190;
             }
         }
         private void addObjectNumber(string lvlObjectNumber)
@@ -210,12 +287,25 @@ namespace jpwp
             this.Controls.Add((givenNum));
 
         }
+        private void winingBanner()
+        {
+            clearAll();
+            Label win = new Label();
+            win.Text = "Gratuluje, pokona³eœ wszystkie poziomy";
+            win.Font = new Font("TimesNewRoman", 50, FontStyle.Bold, GraphicsUnit.Pixel);
+            win.Left = 130;
+            win.Top = 450;
+            win.ForeColor = Color.Red;
+            win.AutoSize = true;
+            win.Tag = "GivenNumber";
+            this.Controls.Add((win));
+        }
         private void createBullet()
         {
             PictureBox bullet = new PictureBox();
             //bullet.Image
             bullet.Size = new Size(6, 8);
-            bullet.Left = 593 ;
+            bullet.Left = 593;// player_panel.Width / 2;
             bullet.Top = 860;
             bullet.Tag = "bullet";
             bullet.BackColor = Color.OrangeRed;
@@ -253,6 +343,16 @@ namespace jpwp
             g.DrawImage(playerImage, 0, 0);
             //e.Graphics.TranslateTransform(this.Width / 2, this.Height / 2);
             e.Graphics.DrawImage(bitmap, 0, 0);
+        }
+
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
