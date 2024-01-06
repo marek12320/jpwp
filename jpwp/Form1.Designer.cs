@@ -150,11 +150,8 @@
             Controls.Add(menu);
             Controls.Add(player_panel);
             Controls.Add(scoreScreen);
-            DoubleBuffered = true;
             KeyPreview = true;
             Margin = new Padding(3, 4, 3, 4);
-            MaximizeBox = false;
-            MinimizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "matemars";
