@@ -54,7 +54,7 @@
             // 
             // gameTimer
             // 
-            gameTimer.Interval = 20;
+            gameTimer.Interval = 10;
             gameTimer.Tag = "gameTimer";
             gameTimer.Tick += MainGameTimer;
             // 
