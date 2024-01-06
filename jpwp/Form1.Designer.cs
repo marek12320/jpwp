@@ -31,12 +31,15 @@
             components = new System.ComponentModel.Container();
             scoreScreen = new Label();
             gameTimer = new System.Windows.Forms.Timer(components);
-            button1 = new Button();
             contextMenuStrip1 = new ContextMenuStrip(components);
             player_panel = new Panel();
-            panel2 = new Panel();
+            menu = new Panel();
+            button2 = new Button();
+            buttonMenuBackToGame = new Button();
+            buttonMenuQuit = new Button();
             label1 = new Label();
-            panel2.SuspendLayout();
+            label2 = new Label();
+            menu.SuspendLayout();
             SuspendLayout();
             // 
             // scoreScreen
@@ -55,19 +58,6 @@
             gameTimer.Tag = "gameTimer";
             gameTimer.Tick += MainGameTimer;
             // 
-            // button1
-            // 
-            button1.AccessibleRole = AccessibleRole.Cursor;
-            button1.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.IndianRed;
-            button1.Location = new Point(1099, 895);
-            button1.Name = "button1";
-            button1.Size = new Size(141, 52);
-            button1.TabIndex = 2;
-            button1.Text = "MENU";
-            button1.UseVisualStyleBackColor = true;
-            button1.MouseClick += button1_MouseClick;
-            // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
@@ -83,17 +73,50 @@
             player_panel.TabIndex = 3;
             player_panel.Paint += playerPaint;
             // 
-            // panel2
+            // menu
             // 
-            panel2.BackColor = SystemColors.GradientInactiveCaption;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(label1);
-            panel2.Location = new Point(423, 137);
-            panel2.Margin = new Padding(3, 4, 3, 4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(434, 506);
-            panel2.TabIndex = 4;
-            panel2.Visible = false;
+            menu.BackColor = SystemColors.GradientInactiveCaption;
+            menu.BorderStyle = BorderStyle.FixedSingle;
+            menu.Controls.Add(button2);
+            menu.Controls.Add(buttonMenuBackToGame);
+            menu.Controls.Add(buttonMenuQuit);
+            menu.Controls.Add(label1);
+            menu.Location = new Point(423, 137);
+            menu.Margin = new Padding(3, 4, 3, 4);
+            menu.Name = "menu";
+            menu.Size = new Size(434, 506);
+            menu.TabIndex = 4;
+            menu.Visible = false;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(117, 369);
+            button2.Name = "button2";
+            button2.Size = new Size(218, 47);
+            button2.TabIndex = 3;
+            button2.Text = "Rozpocznij grę od początku";
+            button2.UseVisualStyleBackColor = true;
+            button2.MouseDown += RestartButtonClick;
+            // 
+            // buttonMenuBackToGame
+            // 
+            buttonMenuBackToGame.Location = new Point(117, 290);
+            buttonMenuBackToGame.Name = "buttonMenuBackToGame";
+            buttonMenuBackToGame.Size = new Size(218, 47);
+            buttonMenuBackToGame.TabIndex = 2;
+            buttonMenuBackToGame.Text = "Wróć do gry";
+            buttonMenuBackToGame.UseVisualStyleBackColor = true;
+            buttonMenuBackToGame.MouseDown += ReturnButtonClick;
+            // 
+            // buttonMenuQuit
+            // 
+            buttonMenuQuit.Location = new Point(117, 205);
+            buttonMenuQuit.Name = "buttonMenuQuit";
+            buttonMenuQuit.Size = new Size(218, 47);
+            buttonMenuQuit.TabIndex = 1;
+            buttonMenuQuit.Text = "Wyjdź z gry";
+            buttonMenuQuit.UseVisualStyleBackColor = true;
+            buttonMenuQuit.MouseDown += QuitButtonClick;
             // 
             // label1
             // 
@@ -106,16 +129,28 @@
             label1.TabIndex = 0;
             label1.Text = "Menu";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(1122, 912);
+            label2.Name = "label2";
+            label2.Size = new Size(101, 38);
+            label2.TabIndex = 5;
+            label2.Text = "MENU";
+            label2.MouseClick += MenuButtonClick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1262, 977);
-            Controls.Add(panel2);
+            Controls.Add(label2);
+            Controls.Add(menu);
             Controls.Add(player_panel);
-            Controls.Add(button1);
             Controls.Add(scoreScreen);
+            KeyPreview = true;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
@@ -123,8 +158,8 @@
             Load += Form1_Load;
             KeyDown += KeyIsDown;
             KeyUp += KeyIsUp;
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            menu.ResumeLayout(false);
+            menu.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -133,11 +168,14 @@
 
         private Label scoreScreen;
         private System.Windows.Forms.Timer gameTimer;
-        private Button button1;
         private ContextMenuStrip contextMenuStrip1;
         private Panel panel1;
         private Panel player_panel;
-        private Panel panel2;
+        private Panel menu;
         private Label label1;
+        private Button buttonMenuQuit;
+        private Button buttonMenuBackToGame;
+        private Button button2;
+        private Label label2;
     }
 }

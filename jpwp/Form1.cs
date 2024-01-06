@@ -29,6 +29,7 @@ namespace jpwp
         {
             InitializeComponent();
             gameSetup();
+
         }
 
         private void MainGameTimer(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace jpwp
             }
             else
             {
-
+                //gameOver();
             }
         }
 
@@ -160,6 +161,7 @@ namespace jpwp
             {
                 Reload = true;
                 clearAll();
+                score = 0;
                 gameSetup();
             }
         }
@@ -169,9 +171,12 @@ namespace jpwp
 
 
             scoreScreen.Text = "Wynik: " + score;
-            //isRoundOneOver = false; 
-            //isRoundTwoOver = false;
-            //isGameOver = false;
+            if (score == 0)
+            {
+                isRoundOneOver = false;
+                isRoundTwoOver = false;
+                isGameOver = false;
+            }
             gameTimer.Start();
             Reload = false;
 
@@ -221,8 +226,8 @@ namespace jpwp
         {
             isGameOver = true;
             gameTimer.Stop();
-
             winingBanner();
+
 
         }
         private Image writeOnImage(Image img, String text)
@@ -347,12 +352,38 @@ namespace jpwp
 
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
-
+            menu.Visible = true;
+            gameTimer.Stop();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void QuitButtonClick(object sender, MouseEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ReturnButtonClick(object sender, MouseEventArgs e)
+        {
+            menu.Visible = false;
+            gameTimer.Start();
+        }
+
+        private void RestartButtonClick(object sender, MouseEventArgs e)
+        {
+            menu.Visible = false;
+            clearAll();
+            score = 0;
+            gameSetup();
+        }
+
+        private void MenuButtonClick(object sender, MouseEventArgs e)
+        {
+            menu.Visible = true;
+            gameTimer.Stop();
         }
     }
 }
