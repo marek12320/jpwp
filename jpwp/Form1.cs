@@ -16,15 +16,15 @@ namespace jpwp
         string[] level1GivenNumbers = { "-1", "-3", "-2", "+2", "+5", "+10" };
         int[] level1Order = { 1, 4, 3, 0, 2, 5 };
 
-        String lvl2ObjectNumber = "3";
-        string[] level2ShipNumbers = { "1", "4", "-2", "5", "6", "-7", "-7" };
-        string[] level2GivenNumbers = { "-1", "-3", "-2", "+2", "+5", "+10", "-7" };
-        int[] level2Order = { 1, 4, 3, 0, 2, 5 , 6};
+        String lvl2ObjectNumber = "5";
+        string[] level2ShipNumbers = { "4", "8", "-3", "-4", "1", "-1", "-7" };
+        string[] level2GivenNumbers = { "+9", "+1", "+4", "+12", "-2", "+8", "+6" };
+        int[] level2Order = { 3, 0, 4, 6, 1, 2 , 5};
 
-        String lvl3ObjectNumber = "3";
-        string[] level3ShipNumbers = { "1", "4", "-2", "5", "6", "-7", "-7", "-7" };
-        string[] level3GivenNumbers = { "-1", "-3", "-2", "+2", "+5", "+10", "-7", "-7" };
-        int[] level3Order = { 1, 4, 3, 0, 2, 5, 6, 7};
+        String lvl3ObjectNumber = "-4";
+        string[] level3ShipNumbers = { "5", "-9", "-7", "0", "-3", "-4", "1", "2" };
+        string[] level3GivenNumbers = { "+5", "-4", "-1", "+3", "-9", "-6", "0", "-5" };
+        int[] level3Order = { 1, 3, 4, 2, 0, 7, 5, 6};
         public Form1()
         {
             InitializeComponent();
@@ -110,7 +110,9 @@ namespace jpwp
                                 else
                                 if (score != roundShipNum + roundStartScore)
                                 {
+                                    
                                     addGivenNumber(levelGivenNumbers[score - roundStartScore]);
+                                    
                                 }
 
                             }
@@ -208,6 +210,7 @@ namespace jpwp
             
             if (isRoundOneOver == false)
             {
+                cleargiven();
                 addGivenNumber(level1GivenNumbers[score]);
                 addObjectNumber(lvl1ObjectNumber);
                 alienSpeed = 4;
@@ -216,6 +219,7 @@ namespace jpwp
             }
             else if (isRoundTwoOver == false)
             {
+                cleargiven();
                 addGivenNumber(level2GivenNumbers[score - 6]);
                 addObjectNumber(lvl2ObjectNumber);
                 alienSpeed = 3;
@@ -224,6 +228,7 @@ namespace jpwp
             }
             else if (isGameOver == false)
             {
+                cleargiven();
                 addGivenNumber(level3GivenNumbers[score - 13]);
                 addObjectNumber(lvl3ObjectNumber);
                 alienSpeed = 2;
@@ -245,6 +250,7 @@ namespace jpwp
             if (isRoundOneOver == false)
             {
                 isRoundOneOver = true;
+                clearAll();
                 Baner("Kliknij Enter aby rozpocz¹æ nastêpny poziom", 130, 450);
                 gameTimer.Stop();
 
@@ -322,6 +328,7 @@ namespace jpwp
             objectNum.Top = 860;
             objectNum.ForeColor = Color.Red;
             objectNum.AutoSize = true;
+            objectNum.Tag = "objectNum";
             this.Controls.Add((objectNum));
 
         }
@@ -381,18 +388,30 @@ namespace jpwp
             }
             foreach (Control i in this.Controls.OfType<Label>())
             {
-                if ((string)i.Tag == "endBaner")
+                if ((string)i.Tag == "endBaner" || (string)i.Tag == "GivenNumber")
                 {
                     this.Controls.Remove(i);
                 }
             }
+            
 
+        }
+        private void cleargiven()
+        {
+            foreach (Control i in this.Controls.OfType<Label>())
+            {
+                if ((string)i.Tag == "objectNum")
+                {
+                    this.Controls.Remove(i);
+                }
+            }
         }
 
 
         private void playerPaint(object sender, PaintEventArgs e)
         {
             Image playerImage = Properties.Resources.Spaceship1;
+            this.DoubleBuffered = true;
             Bitmap bitmap = new Bitmap(playerImage.Width * 2, playerImage.Height * 2);
             Graphics g = Graphics.FromImage(bitmap);
 
