@@ -1,3 +1,4 @@
+using System.Net.Sockets;
 using System.Runtime.Intrinsics.X86;
 
 namespace jpwp
@@ -64,6 +65,7 @@ namespace jpwp
         public Form1()
         {
             InitializeComponent();
+
             gameSetup();
 
         }
@@ -99,15 +101,15 @@ namespace jpwp
             }
 
         }
-        /// <summary>
         /// Funkcja odpowiada za przebieg gry
-        /// </summary>
-        /// <param name="levelOrder">aaaa</param>
-        /// <param name="roundStartScore">bbbbb</param>
-        /// <param name="levelGivenNumbers">cccc</param>
-        /// <param name="roundShipNum">ddddd</param>
         private void GameLogic(int[] levelOrder, int roundStartScore, String[] levelGivenNumbers, int roundShipNum)
         {
+            if (score == 1)
+            {
+                instrukcja.Visible = false;
+                instrukcja2.Visible = false;
+                strzlaInstrukcja.Visible = false;
+            }
             if (moveLeft == true && cannonAngle > -54)
             {
                 cannonAngle -= 1;

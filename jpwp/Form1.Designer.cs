@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             scoreScreen = new Label();
             gameTimer = new System.Windows.Forms.Timer(components);
             contextMenuStrip1 = new ContextMenuStrip(components);
@@ -39,7 +40,11 @@
             buttonMenuQuit = new Button();
             label1 = new Label();
             label2 = new Label();
+            strzlaInstrukcja = new PictureBox();
+            instrukcja = new Label();
+            instrukcja2 = new Label();
             menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)strzlaInstrukcja).BeginInit();
             SuspendLayout();
             // 
             // scoreScreen
@@ -140,12 +145,43 @@
             label2.Text = "MENU";
             label2.MouseClick += MenuButtonClick;
             // 
+            // strzlaInstrukcja
+            // 
+            strzlaInstrukcja.Image = (Image)resources.GetObject("strzlaInstrukcja.Image");
+            strzlaInstrukcja.Location = new Point(89, 853);
+            strzlaInstrukcja.Name = "strzlaInstrukcja";
+            strzlaInstrukcja.Size = new Size(155, 57);
+            strzlaInstrukcja.SizeMode = PictureBoxSizeMode.StretchImage;
+            strzlaInstrukcja.TabIndex = 6;
+            strzlaInstrukcja.TabStop = false;
+            // 
+            // instrukcja
+            // 
+            instrukcja.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            instrukcja.Location = new Point(264, 818);
+            instrukcja.Name = "instrukcja";
+            instrukcja.Size = new Size(261, 150);
+            instrukcja.TabIndex = 7;
+            instrukcja.Text = "Aby zestrzelić statek przeciwnika suma liczby pod statkiem gracza i liczby na statku przeciwnika musi wynieść tyle! ";
+            // 
+            // instrukcja2
+            // 
+            instrukcja2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            instrukcja2.Location = new Point(699, 818);
+            instrukcja2.Name = "instrukcja2";
+            instrukcja2.Size = new Size(241, 69);
+            instrukcja2.TabIndex = 8;
+            instrukcja2.Text = "Steruj statkiem strzałkami, strzelaj spacją";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1262, 977);
+            Controls.Add(instrukcja2);
+            Controls.Add(instrukcja);
+            Controls.Add(strzlaInstrukcja);
             Controls.Add(label2);
             Controls.Add(menu);
             Controls.Add(player_panel);
@@ -159,6 +195,7 @@
             KeyUp += KeyIsUp;
             menu.ResumeLayout(false);
             menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)strzlaInstrukcja).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -185,5 +222,11 @@
         private Button button2;
         /// przycisk menu
         private Label label2;
+        /// element instrukcji
+        private PictureBox strzlaInstrukcja;
+        /// element instrukcji
+        private Label instrukcja;
+        /// element instrukcji
+        private Label instrukcja2;
     }
 }
