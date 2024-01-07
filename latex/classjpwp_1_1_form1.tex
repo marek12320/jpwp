@@ -1,0 +1,790 @@
+\doxysection{jpwp.\+Form1 Class Reference}
+\hypertarget{classjpwp_1_1_form1}{}\label{classjpwp_1_1_form1}\index{jpwp.Form1@{jpwp.Form1}}
+Inheritance diagram for jpwp.\+Form1\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classjpwp_1_1_form1}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classjpwp_1_1_form1_a9b1e7e8eadd4c545fb1d217c715a0734}{Form1}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{classjpwp_1_1_form1_ae85db89134b834a9d065617d88d92826}{Dispose}} (bool disposing)
+\begin{DoxyCompactList}\small\item\em Clean up any resources being used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_afa828feed5c56613bde7ffd2400c2618}{Main\+Game\+Timer}} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Funkcja jest wywolywana z kazdym tickiem game\+Timer\`{}a czyli co 10ms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_a37a35e76c766f09e58349b8367d6e704}{Game\+Logic}} (int\mbox{[}$\,$\mbox{]} level\+Order, int round\+Start\+Score, String\mbox{[}$\,$\mbox{]} level\+Given\+Numbers, int round\+Ship\+Num)
+\begin{DoxyCompactList}\small\item\em Funkcja odpowiada za przebieg gry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_a45184fa79e942090c9d22b08421894bb}{Key\+Is\+Down}} (object sender, Key\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em obluga przyciskow \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_a573506dc15db3325b2a273b6a6be8de4}{Key\+Is\+Up}} (object sender, Key\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em obluga przyciskow \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_ad317222600414537067b959fc3931e23}{game\+Setup}} ()
+\begin{DoxyCompactList}\small\item\em rozpoczecie nowej rundy wraz z wyborem poziomu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_afcc11d04a48e522fe756042994fef6dc}{round\+Over}} ()
+\begin{DoxyCompactList}\small\item\em zakonczenie rundy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_a7159a8605ca01f94f5d2b5e722740d0e}{game\+Over}} ()
+\begin{DoxyCompactList}\small\item\em zakonczenie gry \end{DoxyCompactList}\item 
+Image \mbox{\hyperlink{classjpwp_1_1_form1_a8f1e39e3f2a39a097f912c6c3332332b}{write\+On\+Image}} (Image img, String text)
+\begin{DoxyCompactList}\small\item\em dodawanie napisu do ograzu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_a3aa4931694989a2c2d758dd5dad048b7}{make\+Aliens}} (int startX, int alien\+Num, String\mbox{[}$\,$\mbox{]} level\+Ship\+Numbers)
+\begin{DoxyCompactList}\small\item\em tworzeniei wyswietlanie statkow przeciwnikow \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_a4ae616f8dda4fde255e591c7e4976eba}{add\+Object\+Number}} (string lvl\+Object\+Number)
+\begin{DoxyCompactList}\small\item\em wyswietlanie liczby docelowej w lewym dolnym rogu ekranu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_a39eb89e37bd2f87a511da238920216a2}{add\+Given\+Number}} (string lvlgiven\+Number)
+\begin{DoxyCompactList}\small\item\em wyswietlanie liczby pod statkiem gracza ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_aac65a5ca85b645c53ce325d5ccf8e6fe}{Baner}} (String endtext, int posx, int posy)
+\begin{DoxyCompactList}\small\item\em wyswietla tekst w wybranym na ekranie miejscu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_a9c2e45d6638b8822811b2bbd9ae2136a}{create\+Bullet}} ()
+\begin{DoxyCompactList}\small\item\em tworzenie pocisku \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_ab2d4541351028a559a8454dc7a32f6e6}{clear\+All}} ()
+\begin{DoxyCompactList}\small\item\em usuniecie z ekranu przeciwnikow, pociskow oraz wysietlonych banerow \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_ae10f059112f4f18bf0b64cb23778f7ff}{cleargiven}} ()
+\begin{DoxyCompactList}\small\item\em usuniecie liczby pod statkiem gracza \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_a1ce5c57ca1c72e1653b716c30585f703}{player\+Paint}} (object sender, Paint\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em wysietlanie i obrot statku gracza \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_af64b2844c4b79ffe1c5566e9db9c205c}{Quit\+Button\+Click}} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em obsluga przcisku wylaczania gry z graficznego menu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_a22a6062c34962feba00733f0b422863d}{Return\+Button\+Click}} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em obsluga przcisku powrotu do gry z graficznego menu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_afc1040633d640bc1ccd17c7f0bdd81e6}{Restart\+Button\+Click}} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em obsluga przcisku restartu gry z graficznego menu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_ae557ba7a264f6136641201f358ae954c}{Menu\+Button\+Click}} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em obsluga przcisku wlaczenia graficznego menu; gra jest pauzowana \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjpwp_1_1_form1_aa59e7dc4abe178b19242393d8cfd0b1b}{Initialize\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Required method for Designer support -\/ do not modify the contents of this method with the code editor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classjpwp_1_1_form1_a45f06b437d204aeaae368a4d2ac8e045}{score}} = 0
+\begin{DoxyCompactList}\small\item\em zmienna odpowiadajaca za liczba zestrzelonych przez gracza statkow \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classjpwp_1_1_form1_a7ff76efff82a7fdc564049809e16f3d6}{score\+Missed}} = 0
+\begin{DoxyCompactList}\small\item\em zmienna odpowiadajaca za liczba nietrafionych pociskow \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classjpwp_1_1_form1_aaa5b38725db47ddc7af4edcee4532b0c}{alien\+Speed}} = 4
+\begin{DoxyCompactList}\small\item\em zmienna odpowiadajaca za predkosc statkow przeciwnikow \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classjpwp_1_1_form1_ad8da26971c1073a2baa67c7fbaf8efc5}{speedo\+Meter}}
+\begin{DoxyCompactList}\small\item\em zmienna pomocnicza odpowiadajaca do sterowania predkoscia przeciwnikow \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classjpwp_1_1_form1_a85b29da96c4d61f2c90e295ee744c0ec}{cannon\+Angle}} = 0
+\begin{DoxyCompactList}\small\item\em zmienna odpowiadajaca za pozycje statku gracza \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classjpwp_1_1_form1_ae2f14ee20380bace71ba1a6942888cbf}{Angle}} = 0
+\begin{DoxyCompactList}\small\item\em zmienna odpowiadajaca za k¹t pocisku \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classjpwp_1_1_form1_a39cc6cd85da7b3d6416eec273f675612}{move\+Right}}
+\begin{DoxyCompactList}\small\item\em zmienna odpowiadajaca za obrot gracza w prawo \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classjpwp_1_1_form1_a2c06af56bc228d755bbb463b820c3880}{move\+Left}}
+\begin{DoxyCompactList}\small\item\em zmienna odpowiadajaca za obrot gracza w lewo ~\newline
+ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classjpwp_1_1_form1_ad879680072e23f4cd5f032ecc655be14}{Reload}}
+\begin{DoxyCompactList}\small\item\em zmienna odpowiadajaca za ograniczanie liczby wystrzelonych pociskow \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classjpwp_1_1_form1_ae2e69ad9c5f06e41028f85d88adea26e}{is\+Round\+One\+Over}} = false
+\begin{DoxyCompactList}\small\item\em falga czy 1 runda ukonczona \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classjpwp_1_1_form1_a8a56847e0d19873c1b7238455ce8b381}{is\+Round\+Two\+Over}} = false
+\begin{DoxyCompactList}\small\item\em flaga czy 2 runda ukonczona \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classjpwp_1_1_form1_ad7aea8da82cd182afc0baf90399ca81b}{is\+Game\+Over}} = true
+\begin{DoxyCompactList}\small\item\em flaga czy gra runda ukonczona \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classjpwp_1_1_form1_a267551dde7e42d68aef551f080e8f5c4}{is\+Loser}} = false
+\begin{DoxyCompactList}\small\item\em flaga czy gracz przegral \end{DoxyCompactList}\item 
+Picture\+Box\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjpwp_1_1_form1_a960914c9be1a262a005f2f96b0ad0785}{Alien\+Numbers}} = null!
+\begin{DoxyCompactList}\small\item\em tablica na obiekty przeciwnikow przeciwnikami ~\newline
+ \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classjpwp_1_1_form1_ab6e8a970ab53f38ebecdec765c4cbd23}{lvl1\+Object\+Number}} = "{}3"{}
+\begin{DoxyCompactList}\small\item\em liczba docelowa 1 poziomu \end{DoxyCompactList}\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjpwp_1_1_form1_a1faea2c213a149956874fb42f8d2510f}{level1\+Ship\+Numbers}} = \{ "{}1"{}, "{}4"{}, "{}-\/2"{}, "{}5"{}, "{}6"{}, "{}-\/7"{} \}
+\begin{DoxyCompactList}\small\item\em liczby wyswietlane na poszczegolnych statkach podczas 1 poziomu \end{DoxyCompactList}\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjpwp_1_1_form1_acdfead288d59375368adda95065c284b}{level1\+Given\+Numbers}} = \{ "{}-\/1"{}, "{}-\/3"{}, "{}-\/2"{}, "{}+2"{}, "{}+5"{}, "{}+10"{} \}
+\begin{DoxyCompactList}\small\item\em liczby wyswietlane na statku gracza podczas 1 poziomu \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjpwp_1_1_form1_a00e29c0bda3e3859e88682d11af6d916}{level1\+Order}} = \{ 1, 4, 3, 0, 2, 5 \}
+\begin{DoxyCompactList}\small\item\em prawidlowa kolejnosc zestrzelenia statkow podczas 1 poziomu \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classjpwp_1_1_form1_a9565afe33367b3c41a94fe9f290930ef}{lvl2\+Object\+Number}} = "{}5"{}
+\begin{DoxyCompactList}\small\item\em liczba docelowa 2 poziomu \end{DoxyCompactList}\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjpwp_1_1_form1_a6d3703a28f9c7fec71d56546d74e5d12}{level2\+Ship\+Numbers}} = \{ "{}4"{}, "{}8"{}, "{}-\/3"{}, "{}-\/4"{}, "{}1"{}, "{}-\/1"{}, "{}-\/7"{} \}
+\begin{DoxyCompactList}\small\item\em liczby wyswietlane na poszczegolnych statkach podczas 2 poziomu \end{DoxyCompactList}\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjpwp_1_1_form1_aef35a8ef8631730f3f1530092ac395f6}{level2\+Given\+Numbers}} = \{ "{}+9"{}, "{}+1"{}, "{}+4"{}, "{}+12"{}, "{}-\/2"{}, "{}+8"{}, "{}+6"{} \}
+\begin{DoxyCompactList}\small\item\em liczby wyswietlane na statku gracza podczas 2 poziomu \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjpwp_1_1_form1_af27d668214d808c76662f64b7b1f1761}{level2\+Order}} = \{ 3, 0, 4, 6, 1, 2, 5 \}
+\begin{DoxyCompactList}\small\item\em prawidlowa kolejnosc zestrzelenia statkow podczas 2 poziomu \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classjpwp_1_1_form1_ac1d690a58124fefdec44bb106c93c09b}{lvl3\+Object\+Number}} = "{}-\/4"{}
+\begin{DoxyCompactList}\small\item\em liczba docelowa 3 poziomu \end{DoxyCompactList}\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjpwp_1_1_form1_a2d65c885ac130a9951b022078ab4231d}{level3\+Ship\+Numbers}} = \{ "{}5"{}, "{}-\/9"{}, "{}-\/7"{}, "{}0"{}, "{}-\/3"{}, "{}-\/4"{}, "{}1"{}, "{}2"{} \}
+\begin{DoxyCompactList}\small\item\em liczby wyswietlane na poszczegolnych statkach podczas 3 poziomu \end{DoxyCompactList}\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjpwp_1_1_form1_aca099bee49beaf26a812f1cc029e2111}{level3\+Given\+Numbers}} = \{ "{}+5"{}, "{}-\/4"{}, "{}-\/1"{}, "{}+3"{}, "{}-\/9"{}, "{}-\/6"{}, "{}0"{}, "{}-\/5"{} \}
+\begin{DoxyCompactList}\small\item\em liczby wyswietlane na statku gracza podczas 3 poziomu \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjpwp_1_1_form1_a447f262e3cf9319bcba2cb78a1acf8c6}{level3\+Order}} = \{ 1, 3, 4, 2, 0, 7, 5, 6 \}
+\begin{DoxyCompactList}\small\item\em prawidlowa kolejnosc zestrzelenia statkow podczas 3 poziomu \end{DoxyCompactList}\item 
+System.\+Component\+Model.\+IContainer \mbox{\hyperlink{classjpwp_1_1_form1_a33bc6a21f415ddc38972185115e34c9a}{components}} = null
+\begin{DoxyCompactList}\small\item\em Required designer variable. \end{DoxyCompactList}\item 
+Label \mbox{\hyperlink{classjpwp_1_1_form1_a0dcc1238c5d0503ec6023a28ca3f9eee}{score\+Screen}}
+\begin{DoxyCompactList}\small\item\em Label wyswietlajacy wynik w dolnym rogu ekranu. \end{DoxyCompactList}\item 
+System.\+Windows.\+Forms.\+Timer \mbox{\hyperlink{classjpwp_1_1_form1_ae26cc2124afc952f49798bd511756236}{game\+Timer}}
+\item 
+Context\+Menu\+Strip \mbox{\hyperlink{classjpwp_1_1_form1_a74281386fdfa599a1e755453f1f1c3ac}{context\+Menu\+Strip1}}
+\begin{DoxyCompactList}\small\item\em nieuzywane \end{DoxyCompactList}\item 
+Panel \mbox{\hyperlink{classjpwp_1_1_form1_aa26ed906aecdcbc73a0e16aace036f7d}{panel1}}
+\begin{DoxyCompactList}\small\item\em nieuzywane \end{DoxyCompactList}\item 
+Panel \mbox{\hyperlink{classjpwp_1_1_form1_adb913e2dadf346c0dcb840688159d8f5}{player\+\_\+panel}}
+\begin{DoxyCompactList}\small\item\em panel na ktorym wyswietla sie statek gracza \end{DoxyCompactList}\item 
+Panel \mbox{\hyperlink{classjpwp_1_1_form1_a1030e4c7628f9fa0115f6f36ba54e211}{menu}}
+\begin{DoxyCompactList}\small\item\em panel menu \end{DoxyCompactList}\item 
+Label \mbox{\hyperlink{classjpwp_1_1_form1_af99383bc69ae0c3b1ba4d3187f54406e}{label1}}
+\begin{DoxyCompactList}\small\item\em napis "{}menu"{} w graficznym menu \end{DoxyCompactList}\item 
+Button \mbox{\hyperlink{classjpwp_1_1_form1_aaac30dd3c824c14e88af048de8989cf0}{button\+Menu\+Quit}}
+\begin{DoxyCompactList}\small\item\em przycisk wyjscia z gry w graficznym menu \end{DoxyCompactList}\item 
+Button \mbox{\hyperlink{classjpwp_1_1_form1_ad199e2734f78e7bcfa153b19cedf5ab2}{button\+Menu\+Back\+To\+Game}}
+\begin{DoxyCompactList}\small\item\em przycisk powrotu do gry w graficznym menu \end{DoxyCompactList}\item 
+Button \mbox{\hyperlink{classjpwp_1_1_form1_a64f8826c83ea77b565793afaf300cb80}{button2}}
+\begin{DoxyCompactList}\small\item\em przycisk restartu gry w garficznym menu \end{DoxyCompactList}\item 
+Label \mbox{\hyperlink{classjpwp_1_1_form1_a9b50e3f9205908088e2fa208ca7f747e}{label2}}
+\begin{DoxyCompactList}\small\item\em przycisk menu \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classjpwp_1_1_form1_a9b1e7e8eadd4c545fb1d217c715a0734}\label{classjpwp_1_1_form1_a9b1e7e8eadd4c545fb1d217c715a0734} 
+\index{jpwp.Form1@{jpwp.Form1}!Form1@{Form1}}
+\index{Form1@{Form1}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{Form1()}{Form1()}}
+{\footnotesize\ttfamily jpwp.\+Form1.\+Form1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classjpwp_1_1_form1_a39eb89e37bd2f87a511da238920216a2}\label{classjpwp_1_1_form1_a39eb89e37bd2f87a511da238920216a2} 
+\index{jpwp.Form1@{jpwp.Form1}!addGivenNumber@{addGivenNumber}}
+\index{addGivenNumber@{addGivenNumber}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{addGivenNumber()}{addGivenNumber()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+add\+Given\+Number (\begin{DoxyParamCaption}\item[{string}]{lvlgiven\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+wyswietlanie liczby pod statkiem gracza ~\newline
+ 
+
+\Hypertarget{classjpwp_1_1_form1_a4ae616f8dda4fde255e591c7e4976eba}\label{classjpwp_1_1_form1_a4ae616f8dda4fde255e591c7e4976eba} 
+\index{jpwp.Form1@{jpwp.Form1}!addObjectNumber@{addObjectNumber}}
+\index{addObjectNumber@{addObjectNumber}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{addObjectNumber()}{addObjectNumber()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+add\+Object\+Number (\begin{DoxyParamCaption}\item[{string}]{lvl\+Object\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+wyswietlanie liczby docelowej w lewym dolnym rogu ekranu 
+
+\Hypertarget{classjpwp_1_1_form1_aac65a5ca85b645c53ce325d5ccf8e6fe}\label{classjpwp_1_1_form1_aac65a5ca85b645c53ce325d5ccf8e6fe} 
+\index{jpwp.Form1@{jpwp.Form1}!Baner@{Baner}}
+\index{Baner@{Baner}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{Baner()}{Baner()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+Baner (\begin{DoxyParamCaption}\item[{String}]{endtext,  }\item[{int}]{posx,  }\item[{int}]{posy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+wyswietla tekst w wybranym na ekranie miejscu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em endtext} & tekst do wyswietlenia\\
+\hline
+{\em posx} & skladowa pozioma poczatku wyœwietlanego tekstu\\
+\hline
+{\em posy} & skladowa pionowa poczatku wyœwietlanego tekstu\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classjpwp_1_1_form1_ab2d4541351028a559a8454dc7a32f6e6}\label{classjpwp_1_1_form1_ab2d4541351028a559a8454dc7a32f6e6} 
+\index{jpwp.Form1@{jpwp.Form1}!clearAll@{clearAll}}
+\index{clearAll@{clearAll}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{clearAll()}{clearAll()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+clear\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+usuniecie z ekranu przeciwnikow, pociskow oraz wysietlonych banerow 
+
+\Hypertarget{classjpwp_1_1_form1_ae10f059112f4f18bf0b64cb23778f7ff}\label{classjpwp_1_1_form1_ae10f059112f4f18bf0b64cb23778f7ff} 
+\index{jpwp.Form1@{jpwp.Form1}!cleargiven@{cleargiven}}
+\index{cleargiven@{cleargiven}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{cleargiven()}{cleargiven()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+cleargiven (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+usuniecie liczby pod statkiem gracza 
+
+\Hypertarget{classjpwp_1_1_form1_a9c2e45d6638b8822811b2bbd9ae2136a}\label{classjpwp_1_1_form1_a9c2e45d6638b8822811b2bbd9ae2136a} 
+\index{jpwp.Form1@{jpwp.Form1}!createBullet@{createBullet}}
+\index{createBullet@{createBullet}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{createBullet()}{createBullet()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+create\+Bullet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+tworzenie pocisku 
+
+\Hypertarget{classjpwp_1_1_form1_ae85db89134b834a9d065617d88d92826}\label{classjpwp_1_1_form1_ae85db89134b834a9d065617d88d92826} 
+\index{jpwp.Form1@{jpwp.Form1}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}}
+{\footnotesize\ttfamily override void jpwp.\+Form1.\+Dispose (\begin{DoxyParamCaption}\item[{bool}]{disposing }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Clean up any resources being used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em disposing} & true if managed resources should be disposed; otherwise, false.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classjpwp_1_1_form1_a37a35e76c766f09e58349b8367d6e704}\label{classjpwp_1_1_form1_a37a35e76c766f09e58349b8367d6e704} 
+\index{jpwp.Form1@{jpwp.Form1}!GameLogic@{GameLogic}}
+\index{GameLogic@{GameLogic}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{GameLogic()}{GameLogic()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+Game\+Logic (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{level\+Order,  }\item[{int}]{round\+Start\+Score,  }\item[{String\mbox{[}$\,$\mbox{]}}]{level\+Given\+Numbers,  }\item[{int}]{round\+Ship\+Num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Funkcja odpowiada za przebieg gry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level\+Order} & aaaa\\
+\hline
+{\em round\+Start\+Score} & bbbbb\\
+\hline
+{\em level\+Given\+Numbers} & cccc\\
+\hline
+{\em round\+Ship\+Num} & ddddd\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classjpwp_1_1_form1_a7159a8605ca01f94f5d2b5e722740d0e}\label{classjpwp_1_1_form1_a7159a8605ca01f94f5d2b5e722740d0e} 
+\index{jpwp.Form1@{jpwp.Form1}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{gameOver()}{gameOver()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zakonczenie gry 
+
+\Hypertarget{classjpwp_1_1_form1_ad317222600414537067b959fc3931e23}\label{classjpwp_1_1_form1_ad317222600414537067b959fc3931e23} 
+\index{jpwp.Form1@{jpwp.Form1}!gameSetup@{gameSetup}}
+\index{gameSetup@{gameSetup}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{gameSetup()}{gameSetup()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+game\+Setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+rozpoczecie nowej rundy wraz z wyborem poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_aa59e7dc4abe178b19242393d8cfd0b1b}\label{classjpwp_1_1_form1_aa59e7dc4abe178b19242393d8cfd0b1b} 
+\index{jpwp.Form1@{jpwp.Form1}!InitializeComponent@{InitializeComponent}}
+\index{InitializeComponent@{InitializeComponent}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{InitializeComponent()}{InitializeComponent()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+Initialize\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Required method for Designer support -\/ do not modify the contents of this method with the code editor. 
+
+\Hypertarget{classjpwp_1_1_form1_a45184fa79e942090c9d22b08421894bb}\label{classjpwp_1_1_form1_a45184fa79e942090c9d22b08421894bb} 
+\index{jpwp.Form1@{jpwp.Form1}!KeyIsDown@{KeyIsDown}}
+\index{KeyIsDown@{KeyIsDown}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{KeyIsDown()}{KeyIsDown()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+Key\+Is\+Down (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Key\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+obluga przyciskow 
+
+\Hypertarget{classjpwp_1_1_form1_a573506dc15db3325b2a273b6a6be8de4}\label{classjpwp_1_1_form1_a573506dc15db3325b2a273b6a6be8de4} 
+\index{jpwp.Form1@{jpwp.Form1}!KeyIsUp@{KeyIsUp}}
+\index{KeyIsUp@{KeyIsUp}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{KeyIsUp()}{KeyIsUp()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+Key\+Is\+Up (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Key\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+obluga przyciskow 
+
+\Hypertarget{classjpwp_1_1_form1_afa828feed5c56613bde7ffd2400c2618}\label{classjpwp_1_1_form1_afa828feed5c56613bde7ffd2400c2618} 
+\index{jpwp.Form1@{jpwp.Form1}!MainGameTimer@{MainGameTimer}}
+\index{MainGameTimer@{MainGameTimer}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{MainGameTimer()}{MainGameTimer()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+Main\+Game\+Timer (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Funkcja jest wywolywana z kazdym tickiem game\+Timer\`{}a czyli co 10ms. 
+
+\Hypertarget{classjpwp_1_1_form1_a3aa4931694989a2c2d758dd5dad048b7}\label{classjpwp_1_1_form1_a3aa4931694989a2c2d758dd5dad048b7} 
+\index{jpwp.Form1@{jpwp.Form1}!makeAliens@{makeAliens}}
+\index{makeAliens@{makeAliens}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{makeAliens()}{makeAliens()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+make\+Aliens (\begin{DoxyParamCaption}\item[{int}]{startX,  }\item[{int}]{alien\+Num,  }\item[{String\mbox{[}$\,$\mbox{]}}]{level\+Ship\+Numbers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+tworzeniei wyswietlanie statkow przeciwnikow 
+
+\Hypertarget{classjpwp_1_1_form1_ae557ba7a264f6136641201f358ae954c}\label{classjpwp_1_1_form1_ae557ba7a264f6136641201f358ae954c} 
+\index{jpwp.Form1@{jpwp.Form1}!MenuButtonClick@{MenuButtonClick}}
+\index{MenuButtonClick@{MenuButtonClick}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{MenuButtonClick()}{MenuButtonClick()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+Menu\+Button\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+obsluga przcisku wlaczenia graficznego menu; gra jest pauzowana 
+
+\Hypertarget{classjpwp_1_1_form1_a1ce5c57ca1c72e1653b716c30585f703}\label{classjpwp_1_1_form1_a1ce5c57ca1c72e1653b716c30585f703} 
+\index{jpwp.Form1@{jpwp.Form1}!playerPaint@{playerPaint}}
+\index{playerPaint@{playerPaint}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{playerPaint()}{playerPaint()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+player\+Paint (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Paint\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+wysietlanie i obrot statku gracza 
+
+\Hypertarget{classjpwp_1_1_form1_af64b2844c4b79ffe1c5566e9db9c205c}\label{classjpwp_1_1_form1_af64b2844c4b79ffe1c5566e9db9c205c} 
+\index{jpwp.Form1@{jpwp.Form1}!QuitButtonClick@{QuitButtonClick}}
+\index{QuitButtonClick@{QuitButtonClick}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{QuitButtonClick()}{QuitButtonClick()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+Quit\+Button\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+obsluga przcisku wylaczania gry z graficznego menu 
+
+\Hypertarget{classjpwp_1_1_form1_afc1040633d640bc1ccd17c7f0bdd81e6}\label{classjpwp_1_1_form1_afc1040633d640bc1ccd17c7f0bdd81e6} 
+\index{jpwp.Form1@{jpwp.Form1}!RestartButtonClick@{RestartButtonClick}}
+\index{RestartButtonClick@{RestartButtonClick}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{RestartButtonClick()}{RestartButtonClick()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+Restart\+Button\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+obsluga przcisku restartu gry z graficznego menu 
+
+\Hypertarget{classjpwp_1_1_form1_a22a6062c34962feba00733f0b422863d}\label{classjpwp_1_1_form1_a22a6062c34962feba00733f0b422863d} 
+\index{jpwp.Form1@{jpwp.Form1}!ReturnButtonClick@{ReturnButtonClick}}
+\index{ReturnButtonClick@{ReturnButtonClick}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{ReturnButtonClick()}{ReturnButtonClick()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+Return\+Button\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+obsluga przcisku powrotu do gry z graficznego menu 
+
+\Hypertarget{classjpwp_1_1_form1_afcc11d04a48e522fe756042994fef6dc}\label{classjpwp_1_1_form1_afcc11d04a48e522fe756042994fef6dc} 
+\index{jpwp.Form1@{jpwp.Form1}!roundOver@{roundOver}}
+\index{roundOver@{roundOver}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{roundOver()}{roundOver()}}
+{\footnotesize\ttfamily void jpwp.\+Form1.\+round\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zakonczenie rundy 
+
+\Hypertarget{classjpwp_1_1_form1_a8f1e39e3f2a39a097f912c6c3332332b}\label{classjpwp_1_1_form1_a8f1e39e3f2a39a097f912c6c3332332b} 
+\index{jpwp.Form1@{jpwp.Form1}!writeOnImage@{writeOnImage}}
+\index{writeOnImage@{writeOnImage}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{writeOnImage()}{writeOnImage()}}
+{\footnotesize\ttfamily Image jpwp.\+Form1.\+write\+On\+Image (\begin{DoxyParamCaption}\item[{Image}]{img,  }\item[{String}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+dodawanie napisu do ograzu 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classjpwp_1_1_form1_a960914c9be1a262a005f2f96b0ad0785}\label{classjpwp_1_1_form1_a960914c9be1a262a005f2f96b0ad0785} 
+\index{jpwp.Form1@{jpwp.Form1}!AlienNumbers@{AlienNumbers}}
+\index{AlienNumbers@{AlienNumbers}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{AlienNumbers}{AlienNumbers}}
+{\footnotesize\ttfamily Picture\+Box \mbox{[}$\,$\mbox{]} jpwp.\+Form1.\+Alien\+Numbers = null!\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+tablica na obiekty przeciwnikow przeciwnikami ~\newline
+ 
+
+\Hypertarget{classjpwp_1_1_form1_aaa5b38725db47ddc7af4edcee4532b0c}\label{classjpwp_1_1_form1_aaa5b38725db47ddc7af4edcee4532b0c} 
+\index{jpwp.Form1@{jpwp.Form1}!alienSpeed@{alienSpeed}}
+\index{alienSpeed@{alienSpeed}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{alienSpeed}{alienSpeed}}
+{\footnotesize\ttfamily int jpwp.\+Form1.\+alien\+Speed = 4\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zmienna odpowiadajaca za predkosc statkow przeciwnikow 
+
+\Hypertarget{classjpwp_1_1_form1_ae2f14ee20380bace71ba1a6942888cbf}\label{classjpwp_1_1_form1_ae2f14ee20380bace71ba1a6942888cbf} 
+\index{jpwp.Form1@{jpwp.Form1}!Angle@{Angle}}
+\index{Angle@{Angle}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{Angle}{Angle}}
+{\footnotesize\ttfamily double jpwp.\+Form1.\+Angle = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zmienna odpowiadajaca za k¹t pocisku 
+
+\Hypertarget{classjpwp_1_1_form1_a64f8826c83ea77b565793afaf300cb80}\label{classjpwp_1_1_form1_a64f8826c83ea77b565793afaf300cb80} 
+\index{jpwp.Form1@{jpwp.Form1}!button2@{button2}}
+\index{button2@{button2}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{button2}{button2}}
+{\footnotesize\ttfamily Button jpwp.\+Form1.\+button2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+przycisk restartu gry w garficznym menu 
+
+\Hypertarget{classjpwp_1_1_form1_ad199e2734f78e7bcfa153b19cedf5ab2}\label{classjpwp_1_1_form1_ad199e2734f78e7bcfa153b19cedf5ab2} 
+\index{jpwp.Form1@{jpwp.Form1}!buttonMenuBackToGame@{buttonMenuBackToGame}}
+\index{buttonMenuBackToGame@{buttonMenuBackToGame}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{buttonMenuBackToGame}{buttonMenuBackToGame}}
+{\footnotesize\ttfamily Button jpwp.\+Form1.\+button\+Menu\+Back\+To\+Game\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+przycisk powrotu do gry w graficznym menu 
+
+\Hypertarget{classjpwp_1_1_form1_aaac30dd3c824c14e88af048de8989cf0}\label{classjpwp_1_1_form1_aaac30dd3c824c14e88af048de8989cf0} 
+\index{jpwp.Form1@{jpwp.Form1}!buttonMenuQuit@{buttonMenuQuit}}
+\index{buttonMenuQuit@{buttonMenuQuit}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{buttonMenuQuit}{buttonMenuQuit}}
+{\footnotesize\ttfamily Button jpwp.\+Form1.\+button\+Menu\+Quit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+przycisk wyjscia z gry w graficznym menu 
+
+\Hypertarget{classjpwp_1_1_form1_a85b29da96c4d61f2c90e295ee744c0ec}\label{classjpwp_1_1_form1_a85b29da96c4d61f2c90e295ee744c0ec} 
+\index{jpwp.Form1@{jpwp.Form1}!cannonAngle@{cannonAngle}}
+\index{cannonAngle@{cannonAngle}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{cannonAngle}{cannonAngle}}
+{\footnotesize\ttfamily double jpwp.\+Form1.\+cannon\+Angle = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zmienna odpowiadajaca za pozycje statku gracza 
+
+\Hypertarget{classjpwp_1_1_form1_a33bc6a21f415ddc38972185115e34c9a}\label{classjpwp_1_1_form1_a33bc6a21f415ddc38972185115e34c9a} 
+\index{jpwp.Form1@{jpwp.Form1}!components@{components}}
+\index{components@{components}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{components}{components}}
+{\footnotesize\ttfamily System.\+Component\+Model.\+IContainer jpwp.\+Form1.\+components = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Required designer variable. 
+
+\Hypertarget{classjpwp_1_1_form1_a74281386fdfa599a1e755453f1f1c3ac}\label{classjpwp_1_1_form1_a74281386fdfa599a1e755453f1f1c3ac} 
+\index{jpwp.Form1@{jpwp.Form1}!contextMenuStrip1@{contextMenuStrip1}}
+\index{contextMenuStrip1@{contextMenuStrip1}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{contextMenuStrip1}{contextMenuStrip1}}
+{\footnotesize\ttfamily Context\+Menu\+Strip jpwp.\+Form1.\+context\+Menu\+Strip1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+nieuzywane 
+
+\Hypertarget{classjpwp_1_1_form1_ae26cc2124afc952f49798bd511756236}\label{classjpwp_1_1_form1_ae26cc2124afc952f49798bd511756236} 
+\index{jpwp.Form1@{jpwp.Form1}!gameTimer@{gameTimer}}
+\index{gameTimer@{gameTimer}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{gameTimer}{gameTimer}}
+{\footnotesize\ttfamily System.\+Windows.\+Forms.\+Timer jpwp.\+Form1.\+game\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classjpwp_1_1_form1_ad7aea8da82cd182afc0baf90399ca81b}\label{classjpwp_1_1_form1_ad7aea8da82cd182afc0baf90399ca81b} 
+\index{jpwp.Form1@{jpwp.Form1}!isGameOver@{isGameOver}}
+\index{isGameOver@{isGameOver}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{isGameOver}{isGameOver}}
+{\footnotesize\ttfamily bool jpwp.\+Form1.\+is\+Game\+Over = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+flaga czy gra runda ukonczona 
+
+\Hypertarget{classjpwp_1_1_form1_a267551dde7e42d68aef551f080e8f5c4}\label{classjpwp_1_1_form1_a267551dde7e42d68aef551f080e8f5c4} 
+\index{jpwp.Form1@{jpwp.Form1}!isLoser@{isLoser}}
+\index{isLoser@{isLoser}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{isLoser}{isLoser}}
+{\footnotesize\ttfamily bool jpwp.\+Form1.\+is\+Loser = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+flaga czy gracz przegral 
+
+\Hypertarget{classjpwp_1_1_form1_ae2e69ad9c5f06e41028f85d88adea26e}\label{classjpwp_1_1_form1_ae2e69ad9c5f06e41028f85d88adea26e} 
+\index{jpwp.Form1@{jpwp.Form1}!isRoundOneOver@{isRoundOneOver}}
+\index{isRoundOneOver@{isRoundOneOver}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{isRoundOneOver}{isRoundOneOver}}
+{\footnotesize\ttfamily bool jpwp.\+Form1.\+is\+Round\+One\+Over = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+falga czy 1 runda ukonczona 
+
+\Hypertarget{classjpwp_1_1_form1_a8a56847e0d19873c1b7238455ce8b381}\label{classjpwp_1_1_form1_a8a56847e0d19873c1b7238455ce8b381} 
+\index{jpwp.Form1@{jpwp.Form1}!isRoundTwoOver@{isRoundTwoOver}}
+\index{isRoundTwoOver@{isRoundTwoOver}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{isRoundTwoOver}{isRoundTwoOver}}
+{\footnotesize\ttfamily bool jpwp.\+Form1.\+is\+Round\+Two\+Over = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+flaga czy 2 runda ukonczona 
+
+\Hypertarget{classjpwp_1_1_form1_af99383bc69ae0c3b1ba4d3187f54406e}\label{classjpwp_1_1_form1_af99383bc69ae0c3b1ba4d3187f54406e} 
+\index{jpwp.Form1@{jpwp.Form1}!label1@{label1}}
+\index{label1@{label1}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{label1}{label1}}
+{\footnotesize\ttfamily Label jpwp.\+Form1.\+label1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+napis "{}menu"{} w graficznym menu 
+
+\Hypertarget{classjpwp_1_1_form1_a9b50e3f9205908088e2fa208ca7f747e}\label{classjpwp_1_1_form1_a9b50e3f9205908088e2fa208ca7f747e} 
+\index{jpwp.Form1@{jpwp.Form1}!label2@{label2}}
+\index{label2@{label2}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{label2}{label2}}
+{\footnotesize\ttfamily Label jpwp.\+Form1.\+label2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+przycisk menu 
+
+\Hypertarget{classjpwp_1_1_form1_acdfead288d59375368adda95065c284b}\label{classjpwp_1_1_form1_acdfead288d59375368adda95065c284b} 
+\index{jpwp.Form1@{jpwp.Form1}!level1GivenNumbers@{level1GivenNumbers}}
+\index{level1GivenNumbers@{level1GivenNumbers}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{level1GivenNumbers}{level1GivenNumbers}}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} jpwp.\+Form1.\+level1\+Given\+Numbers = \{ "{}-\/1"{}, "{}-\/3"{}, "{}-\/2"{}, "{}+2"{}, "{}+5"{}, "{}+10"{} \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+liczby wyswietlane na statku gracza podczas 1 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_a00e29c0bda3e3859e88682d11af6d916}\label{classjpwp_1_1_form1_a00e29c0bda3e3859e88682d11af6d916} 
+\index{jpwp.Form1@{jpwp.Form1}!level1Order@{level1Order}}
+\index{level1Order@{level1Order}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{level1Order}{level1Order}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} jpwp.\+Form1.\+level1\+Order = \{ 1, 4, 3, 0, 2, 5 \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+prawidlowa kolejnosc zestrzelenia statkow podczas 1 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_a1faea2c213a149956874fb42f8d2510f}\label{classjpwp_1_1_form1_a1faea2c213a149956874fb42f8d2510f} 
+\index{jpwp.Form1@{jpwp.Form1}!level1ShipNumbers@{level1ShipNumbers}}
+\index{level1ShipNumbers@{level1ShipNumbers}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{level1ShipNumbers}{level1ShipNumbers}}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} jpwp.\+Form1.\+level1\+Ship\+Numbers = \{ "{}1"{}, "{}4"{}, "{}-\/2"{}, "{}5"{}, "{}6"{}, "{}-\/7"{} \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+liczby wyswietlane na poszczegolnych statkach podczas 1 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_aef35a8ef8631730f3f1530092ac395f6}\label{classjpwp_1_1_form1_aef35a8ef8631730f3f1530092ac395f6} 
+\index{jpwp.Form1@{jpwp.Form1}!level2GivenNumbers@{level2GivenNumbers}}
+\index{level2GivenNumbers@{level2GivenNumbers}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{level2GivenNumbers}{level2GivenNumbers}}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} jpwp.\+Form1.\+level2\+Given\+Numbers = \{ "{}+9"{}, "{}+1"{}, "{}+4"{}, "{}+12"{}, "{}-\/2"{}, "{}+8"{}, "{}+6"{} \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+liczby wyswietlane na statku gracza podczas 2 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_af27d668214d808c76662f64b7b1f1761}\label{classjpwp_1_1_form1_af27d668214d808c76662f64b7b1f1761} 
+\index{jpwp.Form1@{jpwp.Form1}!level2Order@{level2Order}}
+\index{level2Order@{level2Order}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{level2Order}{level2Order}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} jpwp.\+Form1.\+level2\+Order = \{ 3, 0, 4, 6, 1, 2, 5 \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+prawidlowa kolejnosc zestrzelenia statkow podczas 2 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_a6d3703a28f9c7fec71d56546d74e5d12}\label{classjpwp_1_1_form1_a6d3703a28f9c7fec71d56546d74e5d12} 
+\index{jpwp.Form1@{jpwp.Form1}!level2ShipNumbers@{level2ShipNumbers}}
+\index{level2ShipNumbers@{level2ShipNumbers}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{level2ShipNumbers}{level2ShipNumbers}}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} jpwp.\+Form1.\+level2\+Ship\+Numbers = \{ "{}4"{}, "{}8"{}, "{}-\/3"{}, "{}-\/4"{}, "{}1"{}, "{}-\/1"{}, "{}-\/7"{} \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+liczby wyswietlane na poszczegolnych statkach podczas 2 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_aca099bee49beaf26a812f1cc029e2111}\label{classjpwp_1_1_form1_aca099bee49beaf26a812f1cc029e2111} 
+\index{jpwp.Form1@{jpwp.Form1}!level3GivenNumbers@{level3GivenNumbers}}
+\index{level3GivenNumbers@{level3GivenNumbers}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{level3GivenNumbers}{level3GivenNumbers}}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} jpwp.\+Form1.\+level3\+Given\+Numbers = \{ "{}+5"{}, "{}-\/4"{}, "{}-\/1"{}, "{}+3"{}, "{}-\/9"{}, "{}-\/6"{}, "{}0"{}, "{}-\/5"{} \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+liczby wyswietlane na statku gracza podczas 3 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_a447f262e3cf9319bcba2cb78a1acf8c6}\label{classjpwp_1_1_form1_a447f262e3cf9319bcba2cb78a1acf8c6} 
+\index{jpwp.Form1@{jpwp.Form1}!level3Order@{level3Order}}
+\index{level3Order@{level3Order}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{level3Order}{level3Order}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} jpwp.\+Form1.\+level3\+Order = \{ 1, 3, 4, 2, 0, 7, 5, 6 \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+prawidlowa kolejnosc zestrzelenia statkow podczas 3 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_a2d65c885ac130a9951b022078ab4231d}\label{classjpwp_1_1_form1_a2d65c885ac130a9951b022078ab4231d} 
+\index{jpwp.Form1@{jpwp.Form1}!level3ShipNumbers@{level3ShipNumbers}}
+\index{level3ShipNumbers@{level3ShipNumbers}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{level3ShipNumbers}{level3ShipNumbers}}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} jpwp.\+Form1.\+level3\+Ship\+Numbers = \{ "{}5"{}, "{}-\/9"{}, "{}-\/7"{}, "{}0"{}, "{}-\/3"{}, "{}-\/4"{}, "{}1"{}, "{}2"{} \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+liczby wyswietlane na poszczegolnych statkach podczas 3 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_ab6e8a970ab53f38ebecdec765c4cbd23}\label{classjpwp_1_1_form1_ab6e8a970ab53f38ebecdec765c4cbd23} 
+\index{jpwp.Form1@{jpwp.Form1}!lvl1ObjectNumber@{lvl1ObjectNumber}}
+\index{lvl1ObjectNumber@{lvl1ObjectNumber}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{lvl1ObjectNumber}{lvl1ObjectNumber}}
+{\footnotesize\ttfamily String jpwp.\+Form1.\+lvl1\+Object\+Number = "{}3"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+liczba docelowa 1 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_a9565afe33367b3c41a94fe9f290930ef}\label{classjpwp_1_1_form1_a9565afe33367b3c41a94fe9f290930ef} 
+\index{jpwp.Form1@{jpwp.Form1}!lvl2ObjectNumber@{lvl2ObjectNumber}}
+\index{lvl2ObjectNumber@{lvl2ObjectNumber}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{lvl2ObjectNumber}{lvl2ObjectNumber}}
+{\footnotesize\ttfamily String jpwp.\+Form1.\+lvl2\+Object\+Number = "{}5"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+liczba docelowa 2 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_ac1d690a58124fefdec44bb106c93c09b}\label{classjpwp_1_1_form1_ac1d690a58124fefdec44bb106c93c09b} 
+\index{jpwp.Form1@{jpwp.Form1}!lvl3ObjectNumber@{lvl3ObjectNumber}}
+\index{lvl3ObjectNumber@{lvl3ObjectNumber}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{lvl3ObjectNumber}{lvl3ObjectNumber}}
+{\footnotesize\ttfamily String jpwp.\+Form1.\+lvl3\+Object\+Number = "{}-\/4"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+liczba docelowa 3 poziomu 
+
+\Hypertarget{classjpwp_1_1_form1_a1030e4c7628f9fa0115f6f36ba54e211}\label{classjpwp_1_1_form1_a1030e4c7628f9fa0115f6f36ba54e211} 
+\index{jpwp.Form1@{jpwp.Form1}!menu@{menu}}
+\index{menu@{menu}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{menu}{menu}}
+{\footnotesize\ttfamily Panel jpwp.\+Form1.\+menu\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+panel menu 
+
+\Hypertarget{classjpwp_1_1_form1_a2c06af56bc228d755bbb463b820c3880}\label{classjpwp_1_1_form1_a2c06af56bc228d755bbb463b820c3880} 
+\index{jpwp.Form1@{jpwp.Form1}!moveLeft@{moveLeft}}
+\index{moveLeft@{moveLeft}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{moveLeft}{moveLeft}}
+{\footnotesize\ttfamily bool jpwp.\+Form1.\+move\+Left\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zmienna odpowiadajaca za obrot gracza w lewo ~\newline
+ 
+
+\Hypertarget{classjpwp_1_1_form1_a39cc6cd85da7b3d6416eec273f675612}\label{classjpwp_1_1_form1_a39cc6cd85da7b3d6416eec273f675612} 
+\index{jpwp.Form1@{jpwp.Form1}!moveRight@{moveRight}}
+\index{moveRight@{moveRight}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{moveRight}{moveRight}}
+{\footnotesize\ttfamily bool jpwp.\+Form1.\+move\+Right\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zmienna odpowiadajaca za obrot gracza w prawo 
+
+\Hypertarget{classjpwp_1_1_form1_aa26ed906aecdcbc73a0e16aace036f7d}\label{classjpwp_1_1_form1_aa26ed906aecdcbc73a0e16aace036f7d} 
+\index{jpwp.Form1@{jpwp.Form1}!panel1@{panel1}}
+\index{panel1@{panel1}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{panel1}{panel1}}
+{\footnotesize\ttfamily Panel jpwp.\+Form1.\+panel1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+nieuzywane 
+
+\Hypertarget{classjpwp_1_1_form1_adb913e2dadf346c0dcb840688159d8f5}\label{classjpwp_1_1_form1_adb913e2dadf346c0dcb840688159d8f5} 
+\index{jpwp.Form1@{jpwp.Form1}!player\_panel@{player\_panel}}
+\index{player\_panel@{player\_panel}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{player\_panel}{player\_panel}}
+{\footnotesize\ttfamily Panel jpwp.\+Form1.\+player\+\_\+panel\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+panel na ktorym wyswietla sie statek gracza 
+
+\Hypertarget{classjpwp_1_1_form1_ad879680072e23f4cd5f032ecc655be14}\label{classjpwp_1_1_form1_ad879680072e23f4cd5f032ecc655be14} 
+\index{jpwp.Form1@{jpwp.Form1}!Reload@{Reload}}
+\index{Reload@{Reload}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{Reload}{Reload}}
+{\footnotesize\ttfamily bool jpwp.\+Form1.\+Reload\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zmienna odpowiadajaca za ograniczanie liczby wystrzelonych pociskow 
+
+\Hypertarget{classjpwp_1_1_form1_a45f06b437d204aeaae368a4d2ac8e045}\label{classjpwp_1_1_form1_a45f06b437d204aeaae368a4d2ac8e045} 
+\index{jpwp.Form1@{jpwp.Form1}!score@{score}}
+\index{score@{score}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily int jpwp.\+Form1.\+score = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zmienna odpowiadajaca za liczba zestrzelonych przez gracza statkow 
+
+\Hypertarget{classjpwp_1_1_form1_a7ff76efff82a7fdc564049809e16f3d6}\label{classjpwp_1_1_form1_a7ff76efff82a7fdc564049809e16f3d6} 
+\index{jpwp.Form1@{jpwp.Form1}!scoreMissed@{scoreMissed}}
+\index{scoreMissed@{scoreMissed}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{scoreMissed}{scoreMissed}}
+{\footnotesize\ttfamily int jpwp.\+Form1.\+score\+Missed = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zmienna odpowiadajaca za liczba nietrafionych pociskow 
+
+\Hypertarget{classjpwp_1_1_form1_a0dcc1238c5d0503ec6023a28ca3f9eee}\label{classjpwp_1_1_form1_a0dcc1238c5d0503ec6023a28ca3f9eee} 
+\index{jpwp.Form1@{jpwp.Form1}!scoreScreen@{scoreScreen}}
+\index{scoreScreen@{scoreScreen}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{scoreScreen}{scoreScreen}}
+{\footnotesize\ttfamily Label jpwp.\+Form1.\+score\+Screen\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Label wyswietlajacy wynik w dolnym rogu ekranu. 
+
+\Hypertarget{classjpwp_1_1_form1_ad8da26971c1073a2baa67c7fbaf8efc5}\label{classjpwp_1_1_form1_ad8da26971c1073a2baa67c7fbaf8efc5} 
+\index{jpwp.Form1@{jpwp.Form1}!speedoMeter@{speedoMeter}}
+\index{speedoMeter@{speedoMeter}!jpwp.Form1@{jpwp.Form1}}
+\doxysubsubsection{\texorpdfstring{speedoMeter}{speedoMeter}}
+{\footnotesize\ttfamily int jpwp.\+Form1.\+speedo\+Meter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zmienna pomocnicza odpowiadajaca do sterowania predkoscia przeciwnikow 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Woofel/source/repos/jpwp/jpwp/\mbox{\hyperlink{_form1_8cs}{Form1.\+cs}}\item 
+C\+:/\+Users/\+Woofel/source/repos/jpwp/jpwp/\mbox{\hyperlink{_form1_8_designer_8cs}{Form1.\+Designer.\+cs}}\end{DoxyCompactItemize}

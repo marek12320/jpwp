@@ -5,26 +5,62 @@ namespace jpwp
 
     public partial class Form1 : Form
     {
-        int score = 0, scoreMissed = 0, alienSpeed=4, speedoMeter;
-        double cannonAngle = 0, Angle = 0;
-        bool moveRight, moveLeft, Reload, isRoundOneOver = true, isRoundTwoOver = true, isGameOver = true,isLoser = false;
 
+        /// zmienna odpowiadajaca za liczba zestrzelonych przez gracza statkow
+        int score = 0;
+        /// zmienna odpowiadajaca za liczba nietrafionych pociskow
+        int scoreMissed = 0;
+        /// zmienna odpowiadajaca za predkosc statkow przeciwnikow
+        int alienSpeed = 4;
+        /// zmienna pomocnicza odpowiadajaca do sterowania predkoscia przeciwnikow
+        int speedoMeter;
+        /// zmienna odpowiadajaca za pozycje statku gracza
+        double cannonAngle = 0;
+        /// zmienna odpowiadajaca za k¹t pocisku
+        double Angle = 0;
+        /// zmienna odpowiadajaca za obrot gracza w prawo
+        bool moveRight;
+        /// zmienna odpowiadajaca za obrot gracza w lewo    
+        bool moveLeft;
+        /// zmienna odpowiadajaca za ograniczanie liczby wystrzelonych pociskow
+        bool Reload;
+        /// falga czy 1 runda ukonczona
+        bool isRoundOneOver = false;
+        /// flaga czy 2 runda ukonczona
+        bool isRoundTwoOver = false;
+        /// flaga czy gra runda ukonczona
+        bool isGameOver = true;
+        /// flaga czy gracz przegral 
+        bool isLoser = false;
+        /// tablica na obiekty przeciwnikow przeciwnikami  
         PictureBox[] AlienNumbers = null!;
 
+        /// liczba docelowa 1 poziomu
         String lvl1ObjectNumber = "3";
+        /// liczby wyswietlane na poszczegolnych statkach podczas 1 poziomu
         string[] level1ShipNumbers = { "1", "4", "-2", "5", "6", "-7" };
+        /// liczby wyswietlane na statku gracza podczas 1 poziomu
         string[] level1GivenNumbers = { "-1", "-3", "-2", "+2", "+5", "+10" };
+        /// prawidlowa kolejnosc zestrzelenia statkow podczas 1 poziomu
         int[] level1Order = { 1, 4, 3, 0, 2, 5 };
 
+        /// liczba docelowa 2 poziomu
         String lvl2ObjectNumber = "5";
+        /// liczby wyswietlane na poszczegolnych statkach podczas 2 poziomu
         string[] level2ShipNumbers = { "4", "8", "-3", "-4", "1", "-1", "-7" };
+        /// liczby wyswietlane na statku gracza podczas 2 poziomu
         string[] level2GivenNumbers = { "+9", "+1", "+4", "+12", "-2", "+8", "+6" };
-        int[] level2Order = { 3, 0, 4, 6, 1, 2 , 5};
+        /// prawidlowa kolejnosc zestrzelenia statkow podczas 2 poziomu
+        int[] level2Order = { 3, 0, 4, 6, 1, 2, 5 };
 
+        /// liczba docelowa 3 poziomu
         String lvl3ObjectNumber = "-4";
+        /// liczby wyswietlane na poszczegolnych statkach podczas 3 poziomu
         string[] level3ShipNumbers = { "5", "-9", "-7", "0", "-3", "-4", "1", "2" };
+        /// liczby wyswietlane na statku gracza podczas 3 poziomu
         string[] level3GivenNumbers = { "+5", "-4", "-1", "+3", "-9", "-6", "0", "-5" };
-        int[] level3Order = { 1, 3, 4, 2, 0, 7, 5, 6};
+        /// prawidlowa kolejnosc zestrzelenia statkow podczas 3 poziomu
+        int[] level3Order = { 1, 3, 4, 2, 0, 7, 5, 6 };
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +68,7 @@ namespace jpwp
 
         }
 
+        /// Funkcja jest wywolywana z kazdym tickiem gameTimer`a czyli co 10ms
         private void MainGameTimer(object sender, EventArgs e)
         {
             Refresh();
@@ -39,22 +76,22 @@ namespace jpwp
 
             if (isRoundOneOver == false)
             {
-                GameLogic(level1Order, 0, level1GivenNumbers,6);
-                
+                GameLogic(level1Order, 0, level1GivenNumbers, 6);
+
             }
             else if (isRoundTwoOver == false)
             {
-                GameLogic(level2Order, 6, level2GivenNumbers,7);
+                GameLogic(level2Order, 6, level2GivenNumbers, 7);
             }
             else if (isGameOver == false)
             {
-                GameLogic(level3Order, 13, level3GivenNumbers,8);
+                GameLogic(level3Order, 13, level3GivenNumbers, 8);
             }
             else
             {
                 //gameOver();
             }
-            
+
             speedoMeter += 1;
             if (speedoMeter == alienSpeed)
             {
@@ -62,8 +99,14 @@ namespace jpwp
             }
 
         }
-
-        private void GameLogic(int[] levelOrder, int roundStartScore, String[] levelGivenNumbers,int roundShipNum)
+        /// <summary>
+        /// Funkcja odpowiada za przebieg gry
+        /// </summary>
+        /// <param name="levelOrder">aaaa</param>
+        /// <param name="roundStartScore">bbbbb</param>
+        /// <param name="levelGivenNumbers">cccc</param>
+        /// <param name="roundShipNum">ddddd</param>
+        private void GameLogic(int[] levelOrder, int roundStartScore, String[] levelGivenNumbers, int roundShipNum)
         {
             if (moveLeft == true && cannonAngle > -54)
             {
@@ -81,7 +124,7 @@ namespace jpwp
                     {
                         x.Top += 1;
                     }
-                   
+
 
                     foreach (Control b in this.Controls)
                     {
@@ -105,19 +148,19 @@ namespace jpwp
                                 {
                                     scoreScreen.Text = "Wynik: " + score;
                                     roundOver();
-                                    
+
                                 }
                                 else
                                 if (score != roundShipNum + roundStartScore)
                                 {
-                                    
+
                                     addGivenNumber(levelGivenNumbers[score - roundStartScore]);
-                                    
+
                                 }
 
                             }
                         }
-                        
+
                         if (x.Top == 730)
                         {
                             isLoser = true;
@@ -138,7 +181,7 @@ namespace jpwp
                     if (x.Top < 10 || x.Left < 0 || x.Left > 1280)
                     {
                         this.Controls.Remove(x);
-                        scoreMissed += 1; 
+                        scoreMissed += 1;
                         Reload = false;
 
                     }
@@ -147,6 +190,7 @@ namespace jpwp
                 }
             }
         }
+        /// obluga przyciskow
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
 
@@ -161,6 +205,7 @@ namespace jpwp
 
 
         }
+        /// obluga przyciskow
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
@@ -179,9 +224,9 @@ namespace jpwp
             if (e.KeyCode == Keys.Enter && ((isRoundOneOver == true || isRoundOneOver == true) && isGameOver == false))
             {
                 Reload = true;
-                
+
                 clearAll();
-                
+
                 gameSetup();
             }
             if (e.KeyCode == Keys.Enter && isGameOver == true)
@@ -192,11 +237,11 @@ namespace jpwp
                 gameSetup();
             }
         }
-
+        /// rozpoczecie nowej rundy wraz z wyborem poziomu
         private void gameSetup()
         {
 
-            
+
             scoreScreen.Text = "Wynik: " + score;
             if (score == 0)
             {
@@ -207,7 +252,7 @@ namespace jpwp
             }
             gameTimer.Start();
             Reload = false;
-            
+
             if (isRoundOneOver == false)
             {
                 cleargiven();
@@ -239,12 +284,10 @@ namespace jpwp
             {
                 gameOver();
             }
-
-            
-            //Baner();
             gameTimer.Start();
 
         }
+        /// zakonczenie rundy
         private void roundOver()
         {
             if (isRoundOneOver == false)
@@ -265,15 +308,16 @@ namespace jpwp
                 gameOver();
             }
         }
+        ///zakonczenie gry
         private void gameOver()
         {
-            
+
             isGameOver = true;
             gameTimer.Stop();
             if (isLoser == false)
             {
                 clearAll();
-                Baner("Uda³o ci siê wygraæ pud³uj¹c tylko " + scoreMissed+ " razy!", 150, 500 );
+                Baner("Uda³o ci siê wygraæ pud³uj¹c tylko " + scoreMissed + " razy!", 150, 500);
             }
             else
             {
@@ -283,6 +327,7 @@ namespace jpwp
 
 
         }
+        /// dodawanie napisu do ograzu
         private Image writeOnImage(Image img, String text)
         {
 
@@ -298,6 +343,7 @@ namespace jpwp
             }
             return img;
         }
+        ///tworzeniei wyswietlanie statkow przeciwnikow
         private void makeAliens(int startX, int alienNum, String[] levelShipNumbers)
         {
             //int startX = 100;
@@ -315,9 +361,10 @@ namespace jpwp
                 //AlienNumbers[i].BackColor = Color.White;
                 AlienNumbers[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 this.Controls.Add(AlienNumbers[i]);
-                startX += 974/(alienNum-1);
+                startX += 974 / (alienNum - 1);
             }
         }
+        /// wyswietlanie liczby docelowej w lewym dolnym rogu ekranu 
         private void addObjectNumber(string lvlObjectNumber)
         {
 
@@ -332,6 +379,7 @@ namespace jpwp
             this.Controls.Add((objectNum));
 
         }
+        /// wyswietlanie liczby pod statkiem gracza  
         private void addGivenNumber(string lvlgivenNumber)
         {
 
@@ -346,9 +394,15 @@ namespace jpwp
             this.Controls.Add((givenNum));
 
         }
+        /// <summary>
+        /// wyswietla tekst w wybranym na ekranie miejscu
+        /// </summary>
+        /// <param name="endtext">tekst do wyswietlenia</param>
+        /// <param name="posx">skladowa pozioma poczatku wyœwietlanego tekstu</param>
+        /// <param name="posy">skladowa pionowa poczatku wyœwietlanego tekstu</param>
         private void Baner(String endtext, int posx, int posy)
         {
-            
+
             Label win = new Label();
             win.Text = endtext;
             win.Font = new Font("TimesNewRoman", 50, FontStyle.Bold, GraphicsUnit.Pixel);
@@ -359,6 +413,7 @@ namespace jpwp
             win.Tag = "endBaner";
             this.Controls.Add((win));
         }
+        /// tworzenie pocisku
         private void createBullet()
         {
             PictureBox bullet = new PictureBox();
@@ -371,6 +426,7 @@ namespace jpwp
             this.Controls.Add(bullet);
             bullet.BringToFront();
         }
+        /// usuniecie z ekranu przeciwnikow, pociskow oraz wysietlonych banerow
         private void clearAll()
         {
             foreach (Control i in AlienNumbers)
@@ -393,9 +449,10 @@ namespace jpwp
                     this.Controls.Remove(i);
                 }
             }
-            
+
 
         }
+        /// usuniecie liczby pod statkiem gracza
         private void cleargiven()
         {
             foreach (Control i in this.Controls.OfType<Label>())
@@ -407,7 +464,7 @@ namespace jpwp
             }
         }
 
-
+        /// wysietlanie i obrot statku gracza
         private void playerPaint(object sender, PaintEventArgs e)
         {
             Image playerImage = Properties.Resources.Spaceship1;
@@ -423,29 +480,18 @@ namespace jpwp
             //e.Graphics.TranslateTransform(this.Width / 2, this.Height / 2);
             e.Graphics.DrawImage(bitmap, 0, 0);
         }
-
-        private void button1_MouseClick(object sender, MouseEventArgs e)
-        {
-            menu.Visible = true;
-            gameTimer.Stop();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// obsluga przcisku wylaczania gry z graficznego menu
         private void QuitButtonClick(object sender, MouseEventArgs e)
         {
             this.Close();
         }
-
+        /// obsluga przcisku powrotu do gry z graficznego menu
         private void ReturnButtonClick(object sender, MouseEventArgs e)
         {
             menu.Visible = false;
             gameTimer.Start();
         }
-
+        /// obsluga przcisku restartu gry z graficznego menu
         private void RestartButtonClick(object sender, MouseEventArgs e)
         {
             menu.Visible = false;
@@ -453,7 +499,7 @@ namespace jpwp
             score = 0;
             gameSetup();
         }
-
+        /// obsluga przcisku wlaczenia graficznego menu; gra jest pauzowana
         private void MenuButtonClick(object sender, MouseEventArgs e)
         {
             menu.Visible = true;

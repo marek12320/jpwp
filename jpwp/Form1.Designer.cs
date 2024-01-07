@@ -155,7 +155,6 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "matemars";
-            Load += Form1_Load;
             KeyDown += KeyIsDown;
             KeyUp += KeyIsUp;
             menu.ResumeLayout(false);
@@ -165,17 +164,26 @@
         }
 
         #endregion
-
+        /// Label wyswietlajacy wynik w dolnym rogu ekranu
         private Label scoreScreen;
         private System.Windows.Forms.Timer gameTimer;
+        /// nieuzywane
         private ContextMenuStrip contextMenuStrip1;
+        /// nieuzywane
         private Panel panel1;
+        /// panel na ktorym wyswietla sie statek gracza
         private Panel player_panel;
+        /// panel menu
         private Panel menu;
+        /// napis "menu" w graficznym menu 
         private Label label1;
+        /// przycisk wyjscia z gry w graficznym menu
         private Button buttonMenuQuit;
+        /// przycisk powrotu do gry w graficznym menu
         private Button buttonMenuBackToGame;
+        /// przycisk restartu gry w garficznym menu
         private Button button2;
+        /// przycisk menu
         private Label label2;
     }
 }
