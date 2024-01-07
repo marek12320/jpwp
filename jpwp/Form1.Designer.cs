@@ -50,7 +50,9 @@
             // scoreScreen
             // 
             scoreScreen.AutoSize = true;
+            scoreScreen.BackColor = Color.Transparent;
             scoreScreen.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            scoreScreen.ForeColor = SystemColors.ActiveCaption;
             scoreScreen.Location = new Point(11, 919);
             scoreScreen.Name = "scoreScreen";
             scoreScreen.Size = new Size(73, 28);
@@ -71,6 +73,7 @@
             // 
             // player_panel
             // 
+            player_panel.BackColor = Color.Transparent;
             player_panel.Location = new Point(559, 826);
             player_panel.Margin = new Padding(3, 4, 3, 4);
             player_panel.Name = "player_panel";
@@ -80,7 +83,7 @@
             // 
             // menu
             // 
-            menu.BackColor = SystemColors.GradientInactiveCaption;
+            menu.BackColor = Color.MidnightBlue;
             menu.BorderStyle = BorderStyle.FixedSingle;
             menu.Controls.Add(button2);
             menu.Controls.Add(buttonMenuBackToGame);
@@ -95,39 +98,46 @@
             // 
             // button2
             // 
+            button2.BackColor = SystemColors.ActiveCaption;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button2.Location = new Point(117, 369);
             button2.Name = "button2";
             button2.Size = new Size(218, 47);
             button2.TabIndex = 3;
-            button2.Text = "Rozpocznij grę od początku";
-            button2.UseVisualStyleBackColor = true;
+            button2.Text = "Zagraj jeszcze raz";
+            button2.UseVisualStyleBackColor = false;
             button2.MouseDown += RestartButtonClick;
             // 
             // buttonMenuBackToGame
             // 
+            buttonMenuBackToGame.BackColor = SystemColors.ActiveCaption;
+            buttonMenuBackToGame.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buttonMenuBackToGame.Location = new Point(117, 290);
             buttonMenuBackToGame.Name = "buttonMenuBackToGame";
             buttonMenuBackToGame.Size = new Size(218, 47);
             buttonMenuBackToGame.TabIndex = 2;
             buttonMenuBackToGame.Text = "Wróć do gry";
-            buttonMenuBackToGame.UseVisualStyleBackColor = true;
+            buttonMenuBackToGame.UseVisualStyleBackColor = false;
             buttonMenuBackToGame.MouseDown += ReturnButtonClick;
             // 
             // buttonMenuQuit
             // 
+            buttonMenuQuit.BackColor = SystemColors.ActiveCaption;
+            buttonMenuQuit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonMenuQuit.ForeColor = SystemColors.ActiveCaptionText;
             buttonMenuQuit.Location = new Point(117, 205);
             buttonMenuQuit.Name = "buttonMenuQuit";
             buttonMenuQuit.Size = new Size(218, 47);
             buttonMenuQuit.TabIndex = 1;
             buttonMenuQuit.Text = "Wyjdź z gry";
-            buttonMenuQuit.UseVisualStyleBackColor = true;
+            buttonMenuQuit.UseVisualStyleBackColor = false;
             buttonMenuQuit.MouseDown += QuitButtonClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Black", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.IndianRed;
+            label1.ForeColor = SystemColors.ActiveCaption;
             label1.Location = new Point(151, 56);
             label1.Name = "label1";
             label1.Size = new Size(149, 60);
@@ -137,7 +147,9 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.ActiveCaption;
             label2.Location = new Point(1122, 912);
             label2.Name = "label2";
             label2.Size = new Size(101, 38);
@@ -147,8 +159,9 @@
             // 
             // strzlaInstrukcja
             // 
+            strzlaInstrukcja.BackColor = Color.Transparent;
             strzlaInstrukcja.Image = (Image)resources.GetObject("strzlaInstrukcja.Image");
-            strzlaInstrukcja.Location = new Point(89, 853);
+            strzlaInstrukcja.Location = new Point(93, 853);
             strzlaInstrukcja.Name = "strzlaInstrukcja";
             strzlaInstrukcja.Size = new Size(155, 57);
             strzlaInstrukcja.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -157,7 +170,9 @@
             // 
             // instrukcja
             // 
+            instrukcja.BackColor = Color.Transparent;
             instrukcja.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            instrukcja.ForeColor = SystemColors.ActiveCaption;
             instrukcja.Location = new Point(264, 818);
             instrukcja.Name = "instrukcja";
             instrukcja.Size = new Size(261, 150);
@@ -166,7 +181,9 @@
             // 
             // instrukcja2
             // 
+            instrukcja2.BackColor = Color.Transparent;
             instrukcja2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            instrukcja2.ForeColor = SystemColors.ActiveCaption;
             instrukcja2.Location = new Point(699, 818);
             instrukcja2.Name = "instrukcja2";
             instrukcja2.Size = new Size(241, 69);
@@ -177,8 +194,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = Color.Black;
             ClientSize = new Size(1262, 977);
+            ControlBox = false;
             Controls.Add(instrukcja2);
             Controls.Add(instrukcja);
             Controls.Add(strzlaInstrukcja);
@@ -188,7 +206,11 @@
             Controls.Add(scoreScreen);
             KeyPreview = true;
             Margin = new Padding(3, 4, 3, 4);
+            MinimizeBox = false;
             Name = "Form1";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            SizeGripStyle = SizeGripStyle.Show;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "matemars";
             KeyDown += KeyIsDown;

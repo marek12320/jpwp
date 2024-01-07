@@ -50,7 +50,7 @@ namespace jpwp
         /// liczby wyswietlane na poszczegolnych statkach podczas 2 poziomu
         string[] level2ShipNumbers = { "4", "8", "-3", "-4", "1", "-1", "-7" };
         /// liczby wyswietlane na statku gracza podczas 2 poziomu
-        string[] level2GivenNumbers = { "+9", "+1", "+4", "+12", "-2", "+8", "+6" };
+        string[] level2GivenNumbers = { "+9", "+1", "+4", "+12", "-3", "+8", "+6" };
         /// prawidlowa kolejnosc zestrzelenia statkow podczas 2 poziomu
         int[] level2Order = { 3, 0, 4, 6, 1, 2, 5 };
 
@@ -360,7 +360,7 @@ namespace jpwp
                 AlienNumbers[i].Top = 10;
                 AlienNumbers[i].Tag = "alien";
                 AlienNumbers[i].Left = startX;
-                //AlienNumbers[i].BackColor = Color.White;
+                AlienNumbers[i].BackColor = Color.Transparent;
                 AlienNumbers[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 this.Controls.Add(AlienNumbers[i]);
                 startX += 974 / (alienNum - 1);
@@ -378,6 +378,7 @@ namespace jpwp
             objectNum.ForeColor = Color.Red;
             objectNum.AutoSize = true;
             objectNum.Tag = "objectNum";
+            objectNum.BackColor = Color.Transparent;
             this.Controls.Add((objectNum));
 
         }
@@ -393,6 +394,7 @@ namespace jpwp
             givenNum.ForeColor = Color.Red;
             givenNum.AutoSize = true;
             givenNum.Tag = "GivenNumber";
+            givenNum.BackColor = Color.Transparent;
             this.Controls.Add((givenNum));
 
         }
